@@ -1,0 +1,102 @@
+<?php //App_Entity_Image
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Serializer\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\ClassMetadata')),
+        clone ($p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata')),
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'App\\Entity\\Image',
+                'id',
+                'filename',
+                'owner',
+                'latitude',
+                'longitude',
+                'public',
+                'filePath',
+                'UploadedAt',
+                'originalName',
+                'albums',
+                'tags',
+                'publishedAt',
+                'users',
+                'mimetype',
+                'likes',
+                'uploadedAt',
+            ],
+            'attributesMetadata' => [
+                [
+                    'id' => $o[1],
+                    'filename' => $o[2],
+                    'owner' => $o[3],
+                    'latitude' => $o[4],
+                    'longitude' => $o[5],
+                    'public' => $o[6],
+                    'filePath' => $o[7],
+                    'UploadedAt' => $o[8],
+                    'originalName' => $o[9],
+                    'albums' => $o[10],
+                    'tags' => $o[11],
+                    'publishedAt' => $o[12],
+                    'users' => $o[13],
+                    'mimetype' => $o[14],
+                    'likes' => $o[15],
+                    'uploadedAt' => $o[16],
+                ],
+            ],
+            'groups' => [
+                1 => [
+                    'image',
+                ],
+                [
+                    'image',
+                ],
+                [
+                    'share',
+                ],
+                [
+                    'image',
+                    'share',
+                ],
+                [
+                    'image',
+                    'share',
+                ],
+                8 => [
+                    'image',
+                    'share',
+                ],
+                [
+                    'image',
+                    'share',
+                ],
+                11 => [
+                    'image',
+                ],
+                15 => [
+                    'share',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

@@ -1,0 +1,38 @@
+{
+    "devDependencies": {
+        "@symfony/stimulus-bridge": "^2.0.0",
+        "@symfony/webpack-encore": "^1.0.0",
+        "@vue/compiler-sfc": "^3.0.5",
+        "core-js": "^3.0.0",
+        "jquery-mousewheel": "^3.1.13",
+        "regenerator-runtime": "^0.13.2",
+        "sass": "^1.32.7",
+        "sass-loader": "^10.0.0",
+        "stimulus": "^2.0.0",
+        "vue": "^3.0.5",
+        "vue-loader": "^16.1.2",
+        "vue-template-compiler": "^2.6.12",
+        "webpack-notifier": "^1.6.0"
+    },
+    "license": "UNLICENSED",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.15.2",
+        "axios": "^0.21.1",
+        "bootstrap": "^4.6.0",
+        "bootstrap-tags": "^1.0.0",
+        "bootstrap-tagsinput": "^0.7.1",
+        "dropzone": "^5.7.6",
+        "jquery": "^3.5.1",
+        "popper.js": "^1.16.1",
+        "sortablejs": "^1.13.0",
+        "vue2-dropzone": "^3.6.0",
+        "vue3-dropzone": "0.0.4"
+    }
+}

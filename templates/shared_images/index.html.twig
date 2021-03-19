@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block title %}Hello MainPageController!{% endblock %}
+{% block head %}
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>mainPage</title>
+    </head>
+{% endblock %}
+
+{% block javascripts %}
+    {{  parent() }}
+
+
+    {{ encore_entry_script_tags('sharedPhotos') }}
+
+
+    {% if is_granted("ROLE_USER") %}
+        <script>
+            window.username = '{{ app.user.username|e('js') }}';
+        </script>
+
+    {%  endif %}
+
+{% endblock %}
+
+{% block stylesheets %}
+
+    {{ encore_entry_link_tags('mainPage') }}
+
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    {{  include('image/fullscreen.html.twig') }}
+    <div id="content-shared">
+        <div id="photoListShared"></div>
+    </div>
+
+
+{% endblock %}
