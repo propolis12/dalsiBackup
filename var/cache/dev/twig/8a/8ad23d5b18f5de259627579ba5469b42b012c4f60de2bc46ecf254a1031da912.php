@@ -231,6 +231,9 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
 
                     </ul>
                 </li>
+
+
+            <!--
                 <li>
                     <a href=\"#\">About</a>
                 </li>
@@ -254,7 +257,7 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
                 <li>
                     <a href=\"#\">Contact</a>
                 </li>
-
+               -->
             </ul>
             <!--<div class=\"row\" >
                 <div class=\"col-12\" id=\"inputRow\">
@@ -337,7 +340,7 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
 
 
                     <form id=\"dropzone\" action=\"";
-        // line 175
+        // line 178
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("dropzone_upload");
         echo "\" method=\"POST\" enctype=\"multipart/form-data\" class=\"dropzone js-reference-dropzone\">
                         <input type=\"hidden\" id=\"hiddenDropzoneInput\">
@@ -348,14 +351,14 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
 
 
                     <div id=\"photo-list\" class=\"row js-photo-list\" data-url=\"";
-        // line 183
+        // line 186
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("get_owned_images");
         echo "\">
 
 
 
                         ";
-        // line 194
+        // line 197
         echo "
                         <script>
 
@@ -384,7 +387,7 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
 
     }
 
-    // line 215
+    // line 218
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -394,7 +397,7 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
 
-        // line 216
+        // line 219
         echo "    ";
         echo twig_include($this->env, $context, "footer/footer.html.twig");
         echo "
@@ -420,7 +423,7 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
 
     public function getDebugInfo()
     {
-        return array (  398 => 216,  388 => 215,  359 => 194,  352 => 183,  341 => 175,  202 => 39,  197 => 38,  187 => 37,  177 => 34,  173 => 32,  170 => 31,  168 => 30,  158 => 29,  143 => 23,  139 => 22,  136 => 21,  134 => 20,  130 => 18,  126 => 16,  123 => 15,  117 => 12,  107 => 11,  92 => 4,  82 => 3,  63 => 2,  40 => 1,);
+        return array (  401 => 219,  391 => 218,  362 => 197,  355 => 186,  344 => 178,  202 => 39,  197 => 38,  187 => 37,  177 => 34,  173 => 32,  170 => 31,  168 => 30,  158 => 29,  143 => 23,  139 => 22,  136 => 21,  134 => 20,  130 => 18,  126 => 16,  123 => 15,  117 => 12,  107 => 11,  92 => 4,  82 => 3,  63 => 2,  40 => 1,);
     }
 
     public function getSourceContext()
@@ -494,6 +497,9 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
 
                     </ul>
                 </li>
+
+
+            <!--
                 <li>
                     <a href=\"#\">About</a>
                 </li>
@@ -517,7 +523,7 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
                 <li>
                     <a href=\"#\">Contact</a>
                 </li>
-
+               -->
             </ul>
             <!--<div class=\"row\" >
                 <div class=\"col-12\" id=\"inputRow\">

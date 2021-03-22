@@ -31,23 +31,25 @@
                                     </li>
                                     {% if is_granted("ROLE_ADMIN") %}
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ path('app_admin_users') }}"><p class="text-white">Users</p></a>
+                                        <a class="nav-link" href="{{ path('app_admin_users') }}"><p class="text-white">Manage Users</p></a>
                                     </li>
                                     {% endif %}
-                                    <li class="nav-item dropdown">
+                                    <li class="nav-item" id="searchUserLi">
+                                        <input type="text"  id="searchUserPhotos" placeholder="search user photos">
+                                        <ul id="resultUsersUl"></ul>
+                                    </li>
+                                    <!--<li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Dropdown
+                                            find User
                                         </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="searchUserPhoto">
+                                            <input  class="dropdown-item" placeholder="search user">
+                                           <a class="dropdown-item" href="#">Another action</a>
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" href="#">Something else here</a>
                                         </div>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link disabled" href="#">Disabled</a>
-                                    </li>
+                                    </li>-->
+
 
 
                                 </ul>

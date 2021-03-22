@@ -2,6 +2,18 @@
 
 {%  block title%}Update your info{% endblock %}
 
+
+        {% block javascripts %}
+            {{  parent() }}
+            {{ encore_entry_script_tags('mainPage') }}
+
+        {% endblock %}
+
+        {% block stylesheets%}
+            {{ encore_entry_link_tags('mainPage') }}
+        {% endblock %}
+
+
 {% block body %}
 
     {{ parent() }}

@@ -123,21 +123,24 @@ class __TwigTemplate_67ca1501e85c3208dcdaee1faebdeca085e8d03721eaf282d43d8526495
         echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackScriptTags("sharedPhotos");
         echo "
 
-
+    <link rel=\"stylesheet\" href=\"//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css\">
+    <!--<link rel=\"stylesheet\" href=\"/resources/demos/style.css\">-->
+    <script src=\"https://code.jquery.com/jquery-1.12.4.js\"></script>
+    <script src=\"https://code.jquery.com/ui/1.12.1/jquery-ui.js\"></script>
     ";
-        // line 18
+        // line 21
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER")) {
-            // line 19
+            // line 22
             echo "        <script>
             window.username = '";
-            // line 20
-            echo twig_escape_filter($this->env, twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 20, $this->source); })()), "user", [], "any", false, false, false, 20), "username", [], "any", false, false, false, 20), "js"), "html", null, true);
+            // line 23
+            echo twig_escape_filter($this->env, twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 23, $this->source); })()), "user", [], "any", false, false, false, 23), "username", [], "any", false, false, false, 23), "js"), "html", null, true);
             echo "';
         </script>
 
     ";
         }
-        // line 24
+        // line 27
         echo "
 ";
         
@@ -148,7 +151,7 @@ class __TwigTemplate_67ca1501e85c3208dcdaee1faebdeca085e8d03721eaf282d43d8526495
 
     }
 
-    // line 27
+    // line 30
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -158,10 +161,10 @@ class __TwigTemplate_67ca1501e85c3208dcdaee1faebdeca085e8d03721eaf282d43d8526495
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 28
+        // line 31
         echo "
     ";
-        // line 29
+        // line 32
         echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackLinkTags("mainPage");
         echo "
 
@@ -174,7 +177,7 @@ class __TwigTemplate_67ca1501e85c3208dcdaee1faebdeca085e8d03721eaf282d43d8526495
 
     }
 
-    // line 33
+    // line 36
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -184,12 +187,12 @@ class __TwigTemplate_67ca1501e85c3208dcdaee1faebdeca085e8d03721eaf282d43d8526495
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 34
+        // line 37
         echo "    ";
         $this->displayParentBlock("body", $context, $blocks);
         echo "
     ";
-        // line 35
+        // line 38
         echo twig_include($this->env, $context, "image/fullscreen.html.twig");
         echo "
     <div id=\"content-shared\">
@@ -218,7 +221,7 @@ class __TwigTemplate_67ca1501e85c3208dcdaee1faebdeca085e8d03721eaf282d43d8526495
 
     public function getDebugInfo()
     {
-        return array (  193 => 35,  188 => 34,  178 => 33,  165 => 29,  162 => 28,  152 => 27,  141 => 24,  134 => 20,  131 => 19,  129 => 18,  123 => 15,  116 => 12,  106 => 11,  91 => 4,  81 => 3,  62 => 2,  39 => 1,);
+        return array (  196 => 38,  191 => 37,  181 => 36,  168 => 32,  165 => 31,  155 => 30,  144 => 27,  137 => 23,  134 => 22,  132 => 21,  123 => 15,  116 => 12,  106 => 11,  91 => 4,  81 => 3,  62 => 2,  39 => 1,);
     }
 
     public function getSourceContext()
@@ -239,7 +242,10 @@ class __TwigTemplate_67ca1501e85c3208dcdaee1faebdeca085e8d03721eaf282d43d8526495
 
     {{ encore_entry_script_tags('sharedPhotos') }}
 
-
+    <link rel=\"stylesheet\" href=\"//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css\">
+    <!--<link rel=\"stylesheet\" href=\"/resources/demos/style.css\">-->
+    <script src=\"https://code.jquery.com/jquery-1.12.4.js\"></script>
+    <script src=\"https://code.jquery.com/ui/1.12.1/jquery-ui.js\"></script>
     {% if is_granted(\"ROLE_USER\") %}
         <script>
             window.username = '{{ app.user.username|e('js') }}';

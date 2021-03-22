@@ -17,77 +17,89 @@ import {openWindow, setHoveringOverImages,nextImage,findCurrentImage,previousIma
 var publicImages = []
 var likedImages = []
 var publicImagesNames = []
+var currentPublicImagesNames = []
+var usernames = [];
 $(document).ready(async function() {
     $('#uploadIcon').remove()
+    $('#searchUserLi').show()
     console.log("asdafsfsdfsdfsdfsfsdfsdfsdf")
    // publicImages = await fetchPublicImages()
     likedImages = await fetchLikedImages()
-    console.log(publicImages)
+
     console.log("toto budu moje liked images")
     console.log(likedImages)
-    await renderImagesShared()
+    console.log("toto budu public images")
+    publicImages  = await fetchPublicImages()
+    console.log(publicImages)
+    await renderImagesShared(publicImages.data)
     $('#photo-list').html('')
     for (var i = 0; i < publicImages.data.length; i++) {
         publicImagesNames[i] = publicImages.data[i]['originalName']
+        if(!(usernames.includes(publicImages.data[i]["username"]))) {
+            usernames.push(publicImages.data[i]["username"])
+        }
     }
+    currentPublicImagesNames = publicImagesNames
+
+
 })
 
 
 
 
-async function renderImagesShared() {
+async function renderImagesShared(images) {
 
 
     $('#photoListShared').html('');
     var iconClass = 'far'
-    publicImages = await fetchPublicImages();
+    //publicImages = await fetchPublicImages();
 
 
     // ownedImages = await fetchOwnedImages();
 
     console.log(publicImagesNames + "toto je ownedImages");
-    for (var i = 0; i < publicImages.data.length; i++) {
+    for (var i = 0; i < images.length; i++) {
 
 
         /** for lazy loading */
-        renderHelp(i)
+        renderHelp(i , images)
         if (i > 30) {
             $('#' + i + 'shared').append($('<img>', {
-                realsrc: '/public/photo/' + publicImages.data[i]['originalName'],
+                realsrc: '/public/photo/' + images[i]['originalName'],
                 src: '',
                 alt: '',
-                'data-name': publicImages.data[i]['originalName'],
+                'data-name': images[i]['originalName'],
                 class: 'thumbnailImageShared'
             }))
         } else {
             $('#' + i + 'shared').append($('<img>', {
-                realsrc: '/public/photo/' + publicImages.data[i]['originalName'],
-                src: '/public/photo/' + publicImages.data[i]['originalName'],
+                realsrc: '/public/photo/' + images[i]['originalName'],
+                src: '/public/photo/' + images[i]['originalName'],
                 alt: '',
-                'data-name': publicImages.data[i]['originalName'],
+                'data-name': images[i]['originalName'],
                 class: 'thumbnailImageShared'
             }))
         }
         for (var l = 0; l < likedImages.data.length; l++) {
-            if (likedImages.data[l]["originalName"] === publicImages.data[i]["originalName"]) {
+            if (likedImages.data[l]["originalName"] === images[i]["originalName"]) {
                 iconClass = 'fas'
                 break
             }
         }
 
-        $('#' + i + 'shared').append('<div class="thumbnailIconsShared" ><span class="numberLikes mr-2">' + publicImages.data[i]['likes'].length + '</span><i class="' + iconClass + ' fa-heart  likeable" ></i></div>')
+        $('#' + i + 'shared').append('<div class="thumbnailIconsShared" ><span class="numberLikes mr-2">' + images[i]['likes'].length + '</span><i class="' + iconClass + ' fa-heart  likeable" ></i></div>')
         iconClass = 'far'
 
     }
 }
 
 
-function renderHelp(i) {
+function renderHelp(i, images) {
     $('#photoListShared').append('<div id=' + i + 'shared' + ' class="thumbnailDivShared"> </div>')
-    if (publicImages.data[i]['publishedAt'] !== null) {
-        $('#' + i + 'shared').append('<div class="publicInfoDiv"><div class="ownerNameDiv">'+ publicImages.data[i]['username']  + '</div><div class="publishDateDiv">'+ timeSince(new Date( (publicImages.data[i]['publishedAt'])))  + '</div></div>')
+    if (images[i]['publishedAt'] !== null) {
+        $('#' + i + 'shared').append('<div class="publicInfoDiv"><div class="ownerNameDiv">'+ images[i]['username']  + '</div><div class="publishDateDiv">'+ timeSince(new Date( (images[i]['publishedAt'])))  + '</div></div>')
     } else {
-        $('#' + i + 'shared').append('<div class="publicInfoDiv"><div class="ownerNameDiv">'+ publicImages.data[i]['username']  + '</div></div>')
+        $('#' + i + 'shared').append('<div class="publicInfoDiv"><div class="ownerNameDiv">'+ images[i]['username']  + '</div></div>')
     }
 }
 
@@ -121,8 +133,7 @@ function timeSince(date) {
 }
 
 $(document).on('click','.likeable', async function () {
-    $(this).toggleClass('far')
-    $(this).toggleClass('fas')
+
     var liked = false
     var image
     var name = $(this).parent().siblings()[1].dataset.name
@@ -139,7 +150,9 @@ $(document).on('click','.likeable', async function () {
         //console.log(image)
         //console.log(likedImages)
        likedImages.data.push(image.data)
-        toggleLikedHeart()
+        /*$(this).toggleClass('far')
+        $(this).toggleClass('fas')*/
+        toggleLikedHeart(this)
     } else {
        image = await unlikePhoto(name)
         //console.log(image)
@@ -147,7 +160,9 @@ $(document).on('click','.likeable', async function () {
         likedImages.data.splice(index , 1)
         //console.log("likedImages po delete ")
         //console.log(likedImages)
-        toggleLikedHeart()
+        /*$(this).toggleClass('far')
+        $(this).toggleClass('fas')*/
+        toggleLikedHeart(this)
 
 
     }
@@ -173,15 +188,93 @@ $(document).on('click','.likeable', async function () {
 })
 
 
-function toggleLikedHeart() {
-    $(this).toggleClass('far')
-    $(this).toggleClass('fas')
+function toggleLikedHeart(el) {
+    $(el).toggleClass('far')
+    $(el).toggleClass('fas')
 }
 
 $(document).on('click', '.thumbnailImageShared' , async  function () {
         console.log($(this).data('name'))
         var imageName = $(this).data('name')
-        openWindow(imageName, publicImagesNames)
+        openWindow(imageName, currentPublicImagesNames)
         $('#fullscreenPicture').prepend('<div></div>')
 
 })
+
+/*$( "#searchUserPhotos" ).autocomplete({
+    source: usernames
+});*/
+
+var availableTags = [
+    "ActionScript",
+    "AppleScript",
+    "Asp",
+    "BASIC",
+    "C",
+    "C++",
+    "Clojure",
+    "COBOL",
+    "ColdFusion",
+    "Erlang",
+    "Fortran",
+    "Groovy",
+    "Haskell",
+    "Java",
+    "JavaScript",
+    "Lisp",
+    "Perl",
+    "PHP",
+    "Python",
+    "Ruby",
+    "Scala",
+    "Scheme",
+    "sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
+    ]
+/*$( function() {
+
+    ];
+    $( "#searchUserPhotos" ).autocomplete(
+        availableTags);
+} );*/
+
+
+
+document.getElementById('searchUserPhotos').addEventListener('input', (e)=>{
+    let result = []
+    if(e.target.value) {
+        result = usernames.filter(name => name.toLowerCase().includes(e.target.value))
+        result = result.map(name => `<li class="resultUserLi">${name}</li>`)
+        console.log(result)
+    }
+        showResultUsers(result)
+})
+
+function showResultUsers(resultArray) {
+
+    if (resultArray.length) {
+        const html = /*!resultArray.length ? '' :*/ resultArray.join('')
+        document.querySelector('#resultUsersUl').innerHTML = html
+    } else {
+        const html = `<li class="resultUserNoLi">No public photos for this user</li>`
+        document.querySelector('#resultUsersUl').innerHTML = html
+    }
+}
+
+$(document).on('click', '.resultUserLi', async  function () {
+    var username = $(this).text()
+    await showUserPhotos(username)
+})
+
+export async function showUserPhotos(username) {
+    $('#photoListShared').html()
+    var imagesToRender = []
+    currentPublicImagesNames = []
+    //imagesToRender = publicImages
+    for (var i = 0; i < publicImages.data.length; i++) {
+        if (publicImages.data[i]["username"].includes(username)) {
+            imagesToRender.push(publicImages.data[i])
+            currentPublicImagesNames.push(publicImages.data[i]["originalName"])
+        }
+    }
+    await renderImagesShared(imagesToRender);
+}

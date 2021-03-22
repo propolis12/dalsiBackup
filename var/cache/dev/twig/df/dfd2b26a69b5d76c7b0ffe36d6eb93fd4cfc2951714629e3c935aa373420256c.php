@@ -64,18 +64,18 @@ class __TwigTemplate_8642fa0bd79d749470198aab36db383efd063da0c109f6843668c5ae9fe
         ";
         // line 15
         $this->displayBlock('body', $context, $blocks);
-        // line 94
+        // line 96
         echo "
 
         ";
-        // line 96
+        // line 98
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 101
+        // line 103
         echo "
         ";
-        // line 102
+        // line 104
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 105
+        // line 107
         echo "
     </body>
 </html>
@@ -148,25 +148,27 @@ class __TwigTemplate_8642fa0bd79d749470198aab36db383efd063da0c109f6843668c5ae9fe
                                         <a class=\"nav-link\" href=\"";
             // line 34
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_users");
-            echo "\"><p class=\"text-white\">Users</p></a>
+            echo "\"><p class=\"text-white\">Manage Users</p></a>
                                     </li>
                                     ";
         }
         // line 37
-        echo "                                    <li class=\"nav-item dropdown\">
+        echo "                                    <li class=\"nav-item\" id=\"searchUserLi\">
+                                        <input type=\"text\"  id=\"searchUserPhotos\" placeholder=\"search user photos\">
+                                        <ul id=\"resultUsersUl\"></ul>
+                                    </li>
+                                    <!--<li class=\"nav-item dropdown\">
                                         <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
-                                            Dropdown
+                                            find User
                                         </a>
-                                        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-                                            <a class=\"dropdown-item\" href=\"#\">Action</a>
-                                            <a class=\"dropdown-item\" href=\"#\">Another action</a>
+                                        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\" id=\"searchUserPhoto\">
+                                            <input  class=\"dropdown-item\" placeholder=\"search user\">
+                                           <a class=\"dropdown-item\" href=\"#\">Another action</a>
                                             <div class=\"dropdown-divider\"></div>
                                             <a class=\"dropdown-item\" href=\"#\">Something else here</a>
                                         </div>
-                                    </li>
-                                    <li class=\"nav-item\">
-                                        <a class=\"nav-link disabled\" href=\"#\">Disabled</a>
-                                    </li>
+                                    </li>-->
+
 
 
                                 </ul>
@@ -184,10 +186,10 @@ class __TwigTemplate_8642fa0bd79d749470198aab36db383efd063da0c109f6843668c5ae9fe
                                     </a>
                                 </li>
                                 <li>";
-        // line 67
+        // line 69
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER")) {
             echo " <p class=\"text-white mb-0\"> ";
-            echo twig_escape_filter($this->env, twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 67, $this->source); })()), "user", [], "any", false, false, false, 67), "username", [], "any", false, false, false, 67), "js"), "html", null, true);
+            echo twig_escape_filter($this->env, twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 69, $this->source); })()), "user", [], "any", false, false, false, 69), "username", [], "any", false, false, false, 69), "js"), "html", null, true);
             echo "</p> ";
         }
         echo "</li>
@@ -198,12 +200,12 @@ class __TwigTemplate_8642fa0bd79d749470198aab36db383efd063da0c109f6843668c5ae9fe
                                     </a>
                                     <div class=\"dropdown-menu dropdown-menu-right p-0\" aria-labelledby=\"dropdownMenuButton\">
                                         <a class=\"dropdown-item\" href=\"";
-        // line 74
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_update", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 74, $this->source); })()), "user", [], "any", false, false, false, 74), "id", [], "any", false, false, false, 74)]), "html", null, true);
+        // line 76
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_update", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 76, $this->source); })()), "user", [], "any", false, false, false, 76), "id", [], "any", false, false, false, 76)]), "html", null, true);
         echo "\">My Account</a>
                                         <a class=\"dropdown-item\" href=\"#\">My Bookmarks</a>
                                         <a class=\"dropdown-item\" id=\"logout\" href=\"";
-        // line 76
+        // line 78
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
         echo "\">Sign Out</a>
 
@@ -231,7 +233,7 @@ class __TwigTemplate_8642fa0bd79d749470198aab36db383efd063da0c109f6843668c5ae9fe
 
     }
 
-    // line 96
+    // line 98
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -241,10 +243,10 @@ class __TwigTemplate_8642fa0bd79d749470198aab36db383efd063da0c109f6843668c5ae9fe
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 97
+        // line 99
         echo "
 ";
-        // line 99
+        // line 101
         echo "
         ";
         
@@ -255,7 +257,7 @@ class __TwigTemplate_8642fa0bd79d749470198aab36db383efd063da0c109f6843668c5ae9fe
 
     }
 
-    // line 102
+    // line 104
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -265,7 +267,7 @@ class __TwigTemplate_8642fa0bd79d749470198aab36db383efd063da0c109f6843668c5ae9fe
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 104
+        // line 106
         echo "        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -282,7 +284,7 @@ class __TwigTemplate_8642fa0bd79d749470198aab36db383efd063da0c109f6843668c5ae9fe
 
     public function getDebugInfo()
     {
-        return array (  269 => 104,  259 => 102,  248 => 99,  245 => 97,  235 => 96,  207 => 76,  202 => 74,  188 => 67,  156 => 37,  150 => 34,  147 => 33,  145 => 32,  140 => 30,  126 => 19,  121 => 16,  111 => 15,  92 => 6,  79 => 105,  77 => 102,  74 => 101,  72 => 96,  68 => 94,  66 => 15,  54 => 6,  47 => 1,);
+        return array (  271 => 106,  261 => 104,  250 => 101,  247 => 99,  237 => 98,  209 => 78,  204 => 76,  190 => 69,  156 => 37,  150 => 34,  147 => 33,  145 => 32,  140 => 30,  126 => 19,  121 => 16,  111 => 15,  92 => 6,  79 => 107,  77 => 104,  74 => 103,  72 => 98,  68 => 96,  66 => 15,  54 => 6,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -320,23 +322,25 @@ class __TwigTemplate_8642fa0bd79d749470198aab36db383efd063da0c109f6843668c5ae9fe
                                     </li>
                                     {% if is_granted(\"ROLE_ADMIN\") %}
                                     <li class=\"nav-item\">
-                                        <a class=\"nav-link\" href=\"{{ path('app_admin_users') }}\"><p class=\"text-white\">Users</p></a>
+                                        <a class=\"nav-link\" href=\"{{ path('app_admin_users') }}\"><p class=\"text-white\">Manage Users</p></a>
                                     </li>
                                     {% endif %}
-                                    <li class=\"nav-item dropdown\">
+                                    <li class=\"nav-item\" id=\"searchUserLi\">
+                                        <input type=\"text\"  id=\"searchUserPhotos\" placeholder=\"search user photos\">
+                                        <ul id=\"resultUsersUl\"></ul>
+                                    </li>
+                                    <!--<li class=\"nav-item dropdown\">
                                         <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
-                                            Dropdown
+                                            find User
                                         </a>
-                                        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-                                            <a class=\"dropdown-item\" href=\"#\">Action</a>
-                                            <a class=\"dropdown-item\" href=\"#\">Another action</a>
+                                        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\" id=\"searchUserPhoto\">
+                                            <input  class=\"dropdown-item\" placeholder=\"search user\">
+                                           <a class=\"dropdown-item\" href=\"#\">Another action</a>
                                             <div class=\"dropdown-divider\"></div>
                                             <a class=\"dropdown-item\" href=\"#\">Something else here</a>
                                         </div>
-                                    </li>
-                                    <li class=\"nav-item\">
-                                        <a class=\"nav-link disabled\" href=\"#\">Disabled</a>
-                                    </li>
+                                    </li>-->
+
 
 
                                 </ul>

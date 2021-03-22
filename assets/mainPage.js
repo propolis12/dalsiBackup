@@ -52,6 +52,7 @@ var currentImages = []
 
 $(document).ready(async function() {
     //console.log(tags + "sdasfafadfsadfsadfsafsafsdfsfsdfsdfsdfscscscsdcs")
+    $('#searchUserLi').hide()
     $('#albumList').hide()
     myImages  = await fetchImages();
 

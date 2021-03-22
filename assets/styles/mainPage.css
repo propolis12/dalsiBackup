@@ -347,7 +347,7 @@ li .albumListItem {
 .thumbnailDivShared {
     position: relative;
     padding-top: 3px;
-    padding-left: 2px;
+    padding-left: 8px;
 }
 
 .thumbnailImage {
@@ -630,4 +630,22 @@ input {
 
 #photoListShared {
     display: flex;
+   /* width: 100%;*/
+    flex-wrap: wrap;
+}
+
+.searchLi {
+    list-style-type: none;
+}
+
+#resultUsersUl  {
+    position: fixed;
+    background: whitesmoke;
+    /*align-items: center*/
+    padding-right: 20px;
+}
+
+.resultUserLi:hover{
+    color: whitesmoke;
+    background: #5e2ca5;
 }
