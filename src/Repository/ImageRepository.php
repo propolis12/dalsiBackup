@@ -107,6 +107,7 @@ class ImageRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('r')
             ->select('r.originalName, r.latitude, r.longitude, r.UploadedAt , r.publishedAt  , o.username ')
             ->join('r.owner', 'o')
+            //->leftJoin('r.comments', 'c')
             //->join('r.likes', 'l')
             ->andWhere('r.public = :val' )
             ->setParameter('val' , 1)
@@ -131,6 +132,20 @@ class ImageRepository extends ServiceEntityRepository
             ->getResult();
 
     }
+
+    public function getImageComments($filename) {
+        return $this->createQueryBuilder('l')
+            ->select(' o.username, j.value')
+            ->join('l.comments', 'j')
+            ->join('l.owner', 'o')
+            ->andWhere('l.originalName = :val')
+            ->setParameter('val' , $filename)
+            ->getQuery()
+            ->getResult();
+
+    }
+
+
 
     public function getLikedImages() {
         return $this->createQueryBuilder('c')

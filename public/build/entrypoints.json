@@ -35,7 +35,7 @@
       "css": [
         "/build/vendors-node_modules_fortawesome_fontawesome-free_css_brands_css-node_modules_fortawesome_fon-ac0c71.css",
         "/build/vendors-node_modules_dropzone_dist_dropzone_js-node_modules_dropzone_dist_dropzone_css-node_m-ebf025.css",
-        "/build/mainPage.css"
+        "/build/node_modules_symfony_stimulus-bridge_dist_webpack_loader_js_assets_controllers_json-assets_ma-594b72.css"
       ]
     },
     "sharedPhotos": {
@@ -50,7 +50,7 @@
       "css": [
         "/build/vendors-node_modules_fortawesome_fontawesome-free_css_brands_css-node_modules_fortawesome_fon-ac0c71.css",
         "/build/vendors-node_modules_dropzone_dist_dropzone_js-node_modules_dropzone_dist_dropzone_css-node_m-ebf025.css",
-        "/build/sharedPhotos.css"
+        "/build/node_modules_symfony_stimulus-bridge_dist_webpack_loader_js_assets_controllers_json-assets_ma-594b72.css"
       ]
     },
     "login": {

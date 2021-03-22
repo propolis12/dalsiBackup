@@ -33,5 +33,6 @@
   "build/fonts/fa-regular-400.eot": "/build/fonts/fa-regular-400.62a07ffe.eot",
   "build/fonts/fa-regular-400.ttf": "/build/fonts/fa-regular-400.ac236764.ttf",
   "build/fonts/fa-regular-400.woff": "/build/fonts/fa-regular-400.ea5a41ec.woff",
-  "build/fonts/fa-regular-400.woff2": "/build/fonts/fa-regular-400.2c154b0f.woff2"
+  "build/fonts/fa-regular-400.woff2": "/build/fonts/fa-regular-400.2c154b0f.woff2",
+  "build/node_modules_symfony_stimulus-bridge_dist_webpack_loader_js_assets_controllers_json-assets_ma-594b72.css": "/build/node_modules_symfony_stimulus-bridge_dist_webpack_loader_js_assets_controllers_json-assets_ma-594b72.css"
 }

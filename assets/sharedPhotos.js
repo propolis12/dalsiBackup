@@ -41,7 +41,7 @@ $(document).ready(async function() {
     }
     currentPublicImagesNames = publicImagesNames
 
-
+    $('.comments').hide()
 })
 
 
@@ -87,7 +87,8 @@ async function renderImagesShared(images) {
             }
         }
 
-        $('#' + i + 'shared').append('<div class="thumbnailIconsShared" ><span class="numberLikes mr-2">' + images[i]['likes'].length + '</span><i class="' + iconClass + ' fa-heart  likeable" ></i></div>')
+        $('#' + i + 'shared').append('<div class="thumbnailIconsShared" ><span class="commentToggler">comments</span><span class="numberLikes mr-2">' + images[i]['likes'].length + '</span><i class="' + iconClass + ' fa-heart  likeable" ></i></div>')
+        $('#' + i + 'shared').append('<div class="comments"><input type="text" class="commentInput" placeholder="insert comment"></div>')
         iconClass = 'far'
 
     }
@@ -171,7 +172,7 @@ $(document).on('click','.likeable', async function () {
     if( image.status !== 500) {
         console.log("toto bude image")
         console.log(image)
-        $(this).siblings().text((image.data["likes"].length).toString())
+        $(this).siblings('.numberLikes').text((image.data["likes"].length).toString())
     }
    // console.log(image)
     //var index = publicImages.indexOf(image)
@@ -278,3 +279,18 @@ export async function showUserPhotos(username) {
     }
     await renderImagesShared(imagesToRender);
 }
+
+
+$(document).on('click', '.commentToggler', function () {
+    $(this).parent().siblings('.comments').toggle()
+})
+
+$(document).on('keyup', '.commentInput', function (event) {
+    if (event.keyCode === 13) {
+        console.log(event.target.value)
+    }
+})
+
+/*$(document).on('click', '.comments', function () {
+    $(this).toggle()
+})*/

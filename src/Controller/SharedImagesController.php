@@ -56,6 +56,7 @@ class SharedImagesController extends AbstractController
         $publicImages = [];
         foreach ($images as $image) {
             $image["likes"] = $this->imageRepository->getImageLikes($image["originalName"]);
+            $image["comments"] = $this->imageRepository->getImageComments($image["originalName"]);
             array_push($publicImages , $image);
         }
         return $this->json($publicImages);
@@ -66,7 +67,9 @@ class SharedImagesController extends AbstractController
      */
     public function provideLikedImages() {
         $images = $this->imageRepository->getLikedImages();
-        return $this->json($images);
+        return $this->json($images ,200 , [] , [
+            'groups' => ['share']
+        ]);
     }
 
 

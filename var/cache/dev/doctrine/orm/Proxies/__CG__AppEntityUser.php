@@ -66,10 +66,10 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'firstname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lastname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'registeredAt', '' . "\0" . 'App\\Entity\\User' . "\0" . 'agreedTermsAt', '' . "\0" . 'App\\Entity\\User' . "\0" . 'images', '' . "\0" . 'App\\Entity\\User' . "\0" . 'friend', '' . "\0" . 'App\\Entity\\User' . "\0" . 'friends', '' . "\0" . 'App\\Entity\\User' . "\0" . 'albums', '' . "\0" . 'App\\Entity\\User' . "\0" . 'likedImages', '' . "\0" . 'App\\Entity\\User' . "\0" . 'likes'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'firstname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lastname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'registeredAt', '' . "\0" . 'App\\Entity\\User' . "\0" . 'agreedTermsAt', '' . "\0" . 'App\\Entity\\User' . "\0" . 'images', '' . "\0" . 'App\\Entity\\User' . "\0" . 'friend', '' . "\0" . 'App\\Entity\\User' . "\0" . 'friends', '' . "\0" . 'App\\Entity\\User' . "\0" . 'albums', '' . "\0" . 'App\\Entity\\User' . "\0" . 'likedImages', '' . "\0" . 'App\\Entity\\User' . "\0" . 'likes', '' . "\0" . 'App\\Entity\\User' . "\0" . 'comments'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'firstname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lastname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'registeredAt', '' . "\0" . 'App\\Entity\\User' . "\0" . 'agreedTermsAt', '' . "\0" . 'App\\Entity\\User' . "\0" . 'images', '' . "\0" . 'App\\Entity\\User' . "\0" . 'friend', '' . "\0" . 'App\\Entity\\User' . "\0" . 'friends', '' . "\0" . 'App\\Entity\\User' . "\0" . 'albums', '' . "\0" . 'App\\Entity\\User' . "\0" . 'likedImages', '' . "\0" . 'App\\Entity\\User' . "\0" . 'likes'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'firstname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lastname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'registeredAt', '' . "\0" . 'App\\Entity\\User' . "\0" . 'agreedTermsAt', '' . "\0" . 'App\\Entity\\User' . "\0" . 'images', '' . "\0" . 'App\\Entity\\User' . "\0" . 'friend', '' . "\0" . 'App\\Entity\\User' . "\0" . 'friends', '' . "\0" . 'App\\Entity\\User' . "\0" . 'albums', '' . "\0" . 'App\\Entity\\User' . "\0" . 'likedImages', '' . "\0" . 'App\\Entity\\User' . "\0" . 'likes', '' . "\0" . 'App\\Entity\\User' . "\0" . 'comments'];
     }
 
     /**
@@ -563,6 +563,39 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeLike', [$like]);
 
         return parent::removeLike($like);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getComments(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getComments', []);
+
+        return parent::getComments();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addComment(\App\Entity\Comment $comment): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addComment', [$comment]);
+
+        return parent::addComment($comment);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeComment(\App\Entity\Comment $comment): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeComment', [$comment]);
+
+        return parent::removeComment($comment);
     }
 
 }

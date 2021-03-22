@@ -109,6 +109,7 @@ class Image // implements \JsonSerializable
 
     /**
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="image")
+     * @Groups({"share"})
      */
     private $comments;
 

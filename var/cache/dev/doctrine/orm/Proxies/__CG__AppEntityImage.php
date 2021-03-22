@@ -66,10 +66,10 @@ class Image extends \App\Entity\Image implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'filename', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'owner', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'latitude', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'longitude', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'public', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'filePath', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'UploadedAt', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'originalName', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'albums', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'tags', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'publishedAt', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'users', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'mimetype', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'likes'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'filename', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'owner', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'latitude', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'longitude', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'public', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'filePath', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'UploadedAt', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'originalName', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'albums', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'tags', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'publishedAt', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'users', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'mimetype', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'likes', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'comments'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'filename', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'owner', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'latitude', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'longitude', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'public', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'filePath', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'UploadedAt', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'originalName', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'albums', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'tags', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'publishedAt', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'users', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'mimetype', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'likes'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'filename', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'owner', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'latitude', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'longitude', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'public', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'filePath', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'UploadedAt', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'originalName', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'albums', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'tags', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'publishedAt', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'users', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'mimetype', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'likes', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'comments'];
     }
 
     /**
@@ -541,6 +541,39 @@ class Image extends \App\Entity\Image implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeLike', [$like]);
 
         return parent::removeLike($like);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getComments(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getComments', []);
+
+        return parent::getComments();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addComment(\App\Entity\Comment $comment): \App\Entity\Image
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addComment', [$comment]);
+
+        return parent::addComment($comment);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeComment(\App\Entity\Comment $comment): \App\Entity\Image
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeComment', [$comment]);
+
+        return parent::removeComment($comment);
     }
 
 }
