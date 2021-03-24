@@ -280,12 +280,12 @@ class ImageController extends AbstractController
     {
         /** @var Image $image */
         $image = $this->imageRepository->findOneBy(['originalName' => $filename]);
-        if($image->getPublic()) {
+        /*if($image->getPublic()) {
             $imagePath = $this->uploaderHelper->getFullPath($image->getOriginalName());
             $response = new BinaryFileResponse($imagePath);
             return $response;
-        }
-        if ($image->getOwner() === $this->security->getUser()) {
+        }*/
+        if ($image->getOwner() === $this->security->getUser() || $image->getPublic()) {
             $imagePath = $this->uploaderHelper->getFullPath($image->getOriginalName());
             $response = new BinaryFileResponse($imagePath);
             return $response;
@@ -330,12 +330,12 @@ class ImageController extends AbstractController
     public function getimageInfo(string $filename, Request $request) {
         /** @var Image $image */
         $image = $this->imageRepository->findOneBy(['originalName' => $filename]);
-        if ($image->getOwner() === $this->security->getUser()) {
+        if (($image->getOwner() === $this->security->getUser()) || $image->getPublic()) {
             return $this->json($image, 200, [], [
-                'groups' => ['image']
+                'groups' => ['share']
             ]);
         } else {
-            return $this->json("Not authorized to delete some of the  files", 401);
+            return $this->json("Not authorized to view info", 401);
         }
 
     }

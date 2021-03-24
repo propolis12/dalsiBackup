@@ -345,7 +345,7 @@ li .albumListItem {
 
 
 .thumbnailDivShared {
-    position: relative;
+    /*position: relative;*/
     padding-top: 3px;
     padding-left: 8px;
     /*width: 300px;*/
@@ -605,7 +605,7 @@ input {
 }
 
 .publishDateDiv {
-    padding-left: 20vh;
+    padding-left: 100px;
 }
 
 .ownerNameDiv {
@@ -666,4 +666,30 @@ input {
     position: absolute;
     width: 300px;
     z-index: 5;
+}
+
+.comments {
+    position: fixed;
+    background: whitesmoke;
+}
+
+.commentValues {
+    width: 300px;
+}
+
+.commentCreatedAt {
+    padding-left: 150px;
+    font-size: 12px;
+}
+
+.commentUser {
+    font-size: 12px;
+}
+
+.actualCommentValue {
+     background: antiquewhite;
+}
+
+.commentValue {
+    background: white;
 }

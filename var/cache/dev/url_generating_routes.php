@@ -47,6 +47,7 @@ return [
     'liked_images' => [[], ['_controller' => 'App\\Controller\\SharedImagesController::provideLikedImages'], [], [['text', '/get/liked/images']], [], []],
     'like_photo' => [['filename'], ['_controller' => 'App\\Controller\\SharedImagesController::likeImage'], [], [['variable', '/', '[^/]++', 'filename', true], ['text', '/like/photo']], [], []],
     'unlike_photo' => [['filename'], ['_controller' => 'App\\Controller\\SharedImagesController::unlikeImage'], [], [['variable', '/', '[^/]++', 'filename', true], ['text', '/unlike/photo']], [], []],
+    'add_comment' => [['filename'], ['_controller' => 'App\\Controller\\SharedImagesController::addComment'], [], [['variable', '/', '[^/]++', 'filename', true], ['text', '/add/comment']], [], []],
     'add_tags' => [['filename'], ['_controller' => 'App\\Controller\\TagController::addTag'], [], [['variable', '/', '[^/]++', 'filename', true], ['text', '/add/tags']], [], []],
     'api_entrypoint' => [['index', '_format'], ['_controller' => 'api_platform.action.entrypoint', '_format' => '', '_api_respond' => 'true', 'index' => 'index'], ['index' => 'index'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', 'index', 'index', true], ['text', '/api']], [], []],
     'api_doc' => [['_format'], ['_controller' => 'api_platform.action.documentation', '_format' => '', '_api_respond' => 'true'], [], [['variable', '.', '[^/]++', '_format', true], ['text', '/api/docs']], [], []],

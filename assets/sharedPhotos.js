@@ -12,6 +12,7 @@ import './bootstrap';
 import $ from 'jquery';
 import {fetchAlbumImages} from "./services/album-services";
 import {openWindow, setHoveringOverImages,nextImage,findCurrentImage,previousImage,closeImage} from "./mainPage.js";
+import {addComment} from "@/services/comment-services";
 //require('bootstrap')
 
 var publicImages = []
@@ -88,7 +89,11 @@ async function renderImagesShared(images) {
         }
 
         $('#' + i + 'shared').append('<div class="thumbnailIconsShared" ><span class="commentToggler">comments</span><span class="numberLikes mr-2">' + images[i]['likes'].length + '</span><i class="' + iconClass + ' fa-heart  likeable" ></i></div>')
-        $('#' + i + 'shared').append('<div class="comments"><input type="text" class="commentInput" placeholder="insert comment"></div>')
+        $('#' + i + 'shared').append('<div class="comments"><div class="commentValues"></div><input type="text" class="commentInput" placeholder="insert comment"></div>')
+        for(var j = 0 ; j < images[i]["comments"].length ; j++)
+        $('#' + i + 'shared').children('.comments').children('.commentValues').append('<div class="actualCommentValue"><span class="commentUser">' + images[i]["comments"][j]["username"] + ' </span><span class="commentCreatedAt"> ' +  timeSince(new Date( images[i]["comments"][j]["createdAt"])) +  '</span>' +
+            '<div class="commentValue">' + images[i]["comments"][j]["value"] + '</div></div>')
+
         iconClass = 'far'
 
     }
@@ -285,9 +290,20 @@ $(document).on('click', '.commentToggler', function () {
     $(this).parent().siblings('.comments').toggle()
 })
 
-$(document).on('keyup', '.commentInput', function (event) {
+$(document).on('keyup', '.commentInput', async function (event) {
     if (event.keyCode === 13) {
         console.log(event.target.value)
+        console.log($(this).parent().siblings('.thumbnailImageShared').data('name'))
+        var filename = $(this).parent().siblings('.thumbnailImageShared').data('name')
+        var comment = event.target.value
+        await addComment(comment, filename)
+        var imageInfo = await getImageInfo(filename)
+        $(this).siblings('.commentValues').html('')
+        console.log(imageInfo)
+        for (var i = 0; i < imageInfo.data["comments"].length; i++) {
+            $(this).siblings('.commentValues').append('<div class="actualCommentValue"><span class="commentUser">' + imageInfo.data["comments"][i]["user"]["username"] + ' </span> <span class="commentCreatedAt">' + timeSince(new Date( imageInfo.data["comments"][i]["createdAt"])) + '</span>' +
+                '<div class="commentValue">' + imageInfo.data["comments"][i]["value"] + ' </div></div>')
+        }
     }
 })
 

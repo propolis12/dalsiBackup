@@ -135,9 +135,9 @@ class ImageRepository extends ServiceEntityRepository
 
     public function getImageComments($filename) {
         return $this->createQueryBuilder('l')
-            ->select(' o.username, j.value')
+            ->select(' o.username, j.value , j.createdAt')
             ->join('l.comments', 'j')
-            ->join('l.owner', 'o')
+            ->join('j.user', 'o')
             ->andWhere('l.originalName = :val')
             ->setParameter('val' , $filename)
             ->getQuery()
