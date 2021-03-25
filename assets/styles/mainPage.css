@@ -693,3 +693,20 @@ input {
 .commentValue {
     background: white;
 }
+
+#usersContentWrapper {
+    padding-top: 80px;
+}
+
+.deleteUser:hover {
+    color: red;
+}
+
+#update_person_form {
+   /* padding-top: 100px;*/
+}
+
+.updateContainer {
+    padding-top: 100px;
+}
+

@@ -3,22 +3,59 @@
 {% block title %}Hello AdminController!{% endblock %}
 
 {% block javascripts %}
-    {{  parent() }}
+     {{  parent() }}
 
     {# {{ encore_entry_script_tags('main') }}  #}
-    {{ encore_entry_script_tags('vuePage') }}
+    {{ encore_entry_script_tags('mainPage') }}
 
     {% if is_granted("ROLE_USER") %}
         <script>
             window.username = '{{ app.user.username|e('js') }}';
         </script>
     {%  endif %}
+
+
+
+{% endblock %}
+
+{% block stylesheets %}
+     {{ encore_entry_link_tags('mainPage') }}
 {% endblock %}
 
 {% block body %}
-{{ parent() }}
+ {{ parent() }}
+
+    <div id="usersContentWrapper">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Username</th>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">email</th>
+                <th scope="col">delete</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <!--<th scope="row">1</th>-->
+            {%  for user in users %}
+        <tr>
+            <td>{{  user.id  }}</td>
+            <td>{{  user.username  }}</td>
+            <td>{{  user.firstname  }}</td>
+            <td>{{  user.lastname  }}</td>
+            <td>{{  user.email  }}</td>
+            <td ><a class="deleteUser" href="{{ path('delete_user', {'id': user.id} ) }}" >X</a></td>
+        </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
 
 
-    <div id="users"></div>
+    </div>
 
 {% endblock %}

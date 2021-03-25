@@ -17,14 +17,14 @@
 {% block body %}
 
     {{ parent() }}
-    <div class="container pt-2 ">
+
         <div class="row">
-            <div class=" col-8 offset-2 border rounded">
+            <div class=" col-8 offset-2 border rounded updateContainer">
                 {# {% if error %}
                     <div><p>{{ error }}</p></div>
                 {% endif %} #}
 
-                {{  form_start(updateForm) }}
+                {{  form_start(updateForm , { 'attr' : {'id' : 'update_person_form'}}) }}
                 <h1 class="h3 mb-3 font-weight-normal">Update your information</h1>
                 {# <label for="{{ updateForm.name.vars.value }}"
                        class="{{ form.name.vars.required ? 'required' : '' }}">
@@ -47,5 +47,4 @@
             </div>
 
         </div>
-    </div>
 {% endblock %}

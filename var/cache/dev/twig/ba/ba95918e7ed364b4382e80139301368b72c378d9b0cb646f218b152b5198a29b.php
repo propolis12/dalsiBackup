@@ -143,15 +143,15 @@ class __TwigTemplate_dc1c15c8a72699f9038306cbafbef8478a28e6341af1a0d6ba9b85d3551
         // line 19
         $this->displayParentBlock("body", $context, $blocks);
         echo "
-    <div class=\"container pt-2 \">
+
         <div class=\"row\">
-            <div class=\" col-8 offset-2 border rounded\">
+            <div class=\" col-8 offset-2 border rounded updateContainer\">
                 ";
         // line 26
         echo "
                 ";
         // line 27
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["updateForm"]) || array_key_exists("updateForm", $context) ? $context["updateForm"] : (function () { throw new RuntimeError('Variable "updateForm" does not exist.', 27, $this->source); })()), 'form_start');
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["updateForm"]) || array_key_exists("updateForm", $context) ? $context["updateForm"] : (function () { throw new RuntimeError('Variable "updateForm" does not exist.', 27, $this->source); })()), 'form_start', ["attr" => ["id" => "update_person_form"]]);
         echo "
                 <h1 class=\"h3 mb-3 font-weight-normal\">Update your information</h1>
                 ";
@@ -191,7 +191,6 @@ class __TwigTemplate_dc1c15c8a72699f9038306cbafbef8478a28e6341af1a0d6ba9b85d3551
         echo "            </div>
 
         </div>
-    </div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -237,14 +236,14 @@ class __TwigTemplate_dc1c15c8a72699f9038306cbafbef8478a28e6341af1a0d6ba9b85d3551
 {% block body %}
 
     {{ parent() }}
-    <div class=\"container pt-2 \">
+
         <div class=\"row\">
-            <div class=\" col-8 offset-2 border rounded\">
+            <div class=\" col-8 offset-2 border rounded updateContainer\">
                 {# {% if error %}
                     <div><p>{{ error }}</p></div>
                 {% endif %} #}
 
-                {{  form_start(updateForm) }}
+                {{  form_start(updateForm , { 'attr' : {'id' : 'update_person_form'}}) }}
                 <h1 class=\"h3 mb-3 font-weight-normal\">Update your information</h1>
                 {# <label for=\"{{ updateForm.name.vars.value }}\"
                        class=\"{{ form.name.vars.required ? 'required' : '' }}\">
@@ -267,7 +266,6 @@ class __TwigTemplate_dc1c15c8a72699f9038306cbafbef8478a28e6341af1a0d6ba9b85d3551
             </div>
 
         </div>
-    </div>
 {% endblock %}", "security/update.html.twig", "/home/jakub/Downloads/backup-main/templates/security/update.html.twig");
     }
 }

@@ -30,7 +30,6 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
             'javascripts' => [$this, 'block_javascripts'],
             'stylesheets' => [$this, 'block_stylesheets'],
             'body' => [$this, 'block_body'],
-            'footer' => [$this, 'block_footer'],
         ];
     }
 
@@ -387,30 +386,6 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
 
     }
 
-    // line 218
-    public function block_footer($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
-
-        // line 219
-        echo "    ";
-        echo twig_include($this->env, $context, "footer/footer.html.twig");
-        echo "
-
-";
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-    }
-
     public function getTemplateName()
     {
         return "main_page/MainPage.html.twig";
@@ -423,7 +398,7 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
 
     public function getDebugInfo()
     {
-        return array (  401 => 219,  391 => 218,  362 => 197,  355 => 186,  344 => 178,  202 => 39,  197 => 38,  187 => 37,  177 => 34,  173 => 32,  170 => 31,  168 => 30,  158 => 29,  143 => 23,  139 => 22,  136 => 21,  134 => 20,  130 => 18,  126 => 16,  123 => 15,  117 => 12,  107 => 11,  92 => 4,  82 => 3,  63 => 2,  40 => 1,);
+        return array (  361 => 197,  354 => 186,  343 => 178,  201 => 39,  196 => 38,  186 => 37,  176 => 34,  172 => 32,  169 => 31,  167 => 30,  157 => 29,  142 => 23,  138 => 22,  135 => 21,  133 => 20,  129 => 18,  125 => 16,  122 => 15,  116 => 12,  106 => 11,  91 => 4,  81 => 3,  62 => 2,  39 => 1,);
     }
 
     public function getSourceContext()
@@ -645,11 +620,11 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
 
 {% endblock %}
 
-{% block footer %}
+{# {% block footer %}
     {{ include('footer/footer.html.twig') }}
 
 {% endblock %}
-
+#}
 ", "main_page/MainPage.html.twig", "/home/jakub/Downloads/backup-main/templates/main_page/MainPage.html.twig");
     }
 }
