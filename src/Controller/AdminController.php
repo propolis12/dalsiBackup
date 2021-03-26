@@ -8,6 +8,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class AdminController
+ * @package App\Controller
+ *
+ */
 class AdminController extends AbstractController
 {
 
@@ -40,7 +45,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/delete/user/{id}" , name="delete_user")
+     * @Route("/admin/delete/user/{id}" , name="delete_user")
      * @param $id
      */
     public function deleteUser($id) {
@@ -49,6 +54,19 @@ class AdminController extends AbstractController
         //$this->entityManager->persist($user);
         $this->entityManager->flush();
         return $this->manageUsers();
+
+    }
+
+    /**
+     * @Route("/admin/sort/by/{value}/{order}" , name="sort_by_value")
+     *
+     */
+    public function sortByUsername(string $order , string $value) {
+          $users =   $this->userRepository->findBy(array() , array($value => $order));
+            return $this->render('admin/users.html.twig', [
+                'controller_name' => 'AdminController',
+                'users' => $users
+            ]);
 
     }
 }

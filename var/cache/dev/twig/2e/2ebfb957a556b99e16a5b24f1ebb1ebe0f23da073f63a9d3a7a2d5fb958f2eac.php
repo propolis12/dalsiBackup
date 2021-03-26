@@ -123,28 +123,45 @@ class __TwigTemplate_fdaab31819e2c7efb4496ea1660068468e505a8932c0a4c084de8d1bfdc
     ";
         }
         // line 18
+        echo "                ";
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 18, $this->source); })()), "session", [], "any", false, false, false, 18), "flashbag", [], "any", false, false, false, 18), "get", [0 => "error"], "method", false, false, false, 18));
+        foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
+            // line 19
+            echo "                    <div class=\"alert-danger\">
+                    ";
+            // line 20
+            echo twig_escape_filter($this->env, $context["flashMessage"], "html", null, true);
+            echo "
+                    </div>
+                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 23
         echo "
     ";
-        // line 19
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 19, $this->source); })()), 'form_start');
+        // line 24
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 24, $this->source); })()), 'form_start');
         echo "
                 <h1 class=\"h3 mb-3 font-weight-normal\">Please sign up</h1>
 
 
     ";
-        // line 23
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 23, $this->source); })()), 'widget');
+        // line 28
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 28, $this->source); })()), 'widget');
         echo "
     <button class=\"btn btn-lg btn-primary\" type=\"submit\">
         Sign Up
     </button>
     ";
-        // line 27
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 27, $this->source); })()), 'form_end');
+        // line 32
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 32, $this->source); })()), 'form_end');
         echo "
                 <div class=\"sign in\">
                     <p class=\"text-right\"><a  href=\"";
-        // line 29
+        // line 34
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
         echo "\">or Sign in</a></p>
                 </div>
@@ -175,7 +192,7 @@ class __TwigTemplate_fdaab31819e2c7efb4496ea1660068468e505a8932c0a4c084de8d1bfdc
 
     public function getDebugInfo()
     {
-        return array (  148 => 29,  143 => 27,  136 => 23,  129 => 19,  126 => 18,  120 => 16,  118 => 15,  112 => 11,  102 => 10,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  165 => 34,  160 => 32,  153 => 28,  146 => 24,  143 => 23,  134 => 20,  131 => 19,  126 => 18,  120 => 16,  118 => 15,  112 => 11,  102 => 10,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -197,6 +214,11 @@ class __TwigTemplate_fdaab31819e2c7efb4496ea1660068468e505a8932c0a4c084de8d1bfdc
     {% if error %}
         <div><p>{{ error }}</p></div>
     {% endif %}
+                {% for flashMessage in app.session.flashbag.get('error') %}
+                    <div class=\"alert-danger\">
+                    {{ flashMessage }}
+                    </div>
+                {% endfor %}
 
     {{  form_start(registrationForm) }}
                 <h1 class=\"h3 mb-3 font-weight-normal\">Please sign up</h1>

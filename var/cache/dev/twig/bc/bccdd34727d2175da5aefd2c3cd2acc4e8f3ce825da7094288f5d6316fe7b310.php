@@ -165,10 +165,74 @@ class __TwigTemplate_d939a95f24be96f953f239bf60ea9f7d740ebc958c9c96f45a45eba5266
         <thead class=\"thead-dark\">
             <tr>
                 <th scope=\"col\">#</th>
-                <th scope=\"col\">Username</th>
-                <th scope=\"col\">First name</th>
-                <th scope=\"col\">Last name</th>
-                <th scope=\"col\">email</th>
+                <th scope=\"col\">
+                    <div class=\"dropdown\">
+                        <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                            Username
+                        </button>
+                        <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">
+                            <a class=\"dropdown-item sortByUsername\" href=\"";
+        // line 39
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("sort_by_value", ["order" => "ASC", "value" => "username"]), "html", null, true);
+        echo "\">A-Z</a>
+                            <a class=\"dropdown-item sortByUsername\" href=\"";
+        // line 40
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("sort_by_value", ["order" => "DESC", "value" => "username"]), "html", null, true);
+        echo "\">Z-A</a>
+                        </div>
+                    </div>
+                </th>
+                <th scope=\"col\">
+                    <div class=\"dropdown\">
+                        <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                            First name
+                        </button>
+                        <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">
+                            <a class=\"dropdown-item sortByUsername\" href=\"";
+        // line 50
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("sort_by_value", ["order" => "ASC", "value" => "firstname"]), "html", null, true);
+        echo "\">A-Z</a>
+                            <a class=\"dropdown-item sortByUsername\" href=\"";
+        // line 51
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("sort_by_value", ["order" => "DESC", "value" => "firstname"]), "html", null, true);
+        echo "\">Z-A</a>
+                        </div>
+                    </div>
+                </th>
+                <th scope=\"col\">
+                    <div class=\"dropdown\">
+                        <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                            Last name
+                        </button>
+                        <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">
+                            <a class=\"dropdown-item sortByUsername\" href=\"";
+        // line 61
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("sort_by_value", ["order" => "ASC", "value" => "lastname"]), "html", null, true);
+        echo "\">A-Z</a>
+                            <a class=\"dropdown-item sortByUsername\" href=\"";
+        // line 62
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("sort_by_value", ["order" => "DESC", "value" => "lastname"]), "html", null, true);
+        echo "\">Z-A</a>
+                        </div>
+                    </div>
+                </th>
+                <th scope=\"col\">
+                    <div class=\"dropdown\">
+                        <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                            email
+                        </button>
+                        <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">
+                            <a class=\"dropdown-item sortByUsername\" href=\"";
+        // line 72
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("sort_by_value", ["order" => "ASC", "value" => "email"]), "html", null, true);
+        echo "\">A-Z</a>
+                            <a class=\"dropdown-item sortByUsername\" href=\"";
+        // line 73
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("sort_by_value", ["order" => "DESC", "value" => "email"]), "html", null, true);
+        echo "\">Z-A</a>
+                        </div>
+                    </div>
+                </th>
                 <th scope=\"col\">delete</th>
             </tr>
         </thead>
@@ -176,35 +240,35 @@ class __TwigTemplate_d939a95f24be96f953f239bf60ea9f7d740ebc958c9c96f45a45eba5266
 
             <!--<th scope=\"row\">1</th>-->
             ";
-        // line 43
+        // line 83
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["users"]) || array_key_exists("users", $context) ? $context["users"] : (function () { throw new RuntimeError('Variable "users" does not exist.', 43, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["users"]) || array_key_exists("users", $context) ? $context["users"] : (function () { throw new RuntimeError('Variable "users" does not exist.', 83, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["user"]) {
-            // line 44
+            // line 84
             echo "        <tr>
             <td>";
-            // line 45
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 45), "html", null, true);
+            // line 85
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 85), "html", null, true);
             echo "</td>
             <td>";
-            // line 46
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "username", [], "any", false, false, false, 46), "html", null, true);
+            // line 86
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "username", [], "any", false, false, false, 86), "html", null, true);
             echo "</td>
             <td>";
-            // line 47
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "firstname", [], "any", false, false, false, 47), "html", null, true);
+            // line 87
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "firstname", [], "any", false, false, false, 87), "html", null, true);
             echo "</td>
             <td>";
-            // line 48
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "lastname", [], "any", false, false, false, 48), "html", null, true);
+            // line 88
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "lastname", [], "any", false, false, false, 88), "html", null, true);
             echo "</td>
             <td>";
-            // line 49
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "email", [], "any", false, false, false, 49), "html", null, true);
+            // line 89
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "email", [], "any", false, false, false, 89), "html", null, true);
             echo "</td>
             <td ><a class=\"deleteUser\" href=\"";
-            // line 50
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_user", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 50)]), "html", null, true);
+            // line 90
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_user", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 90)]), "html", null, true);
             echo "\" >X</a></td>
         </tr>
 
@@ -213,7 +277,7 @@ class __TwigTemplate_d939a95f24be96f953f239bf60ea9f7d740ebc958c9c96f45a45eba5266
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['user'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 54
+        // line 94
         echo "
         </tbody>
     </table>
@@ -242,7 +306,7 @@ class __TwigTemplate_d939a95f24be96f953f239bf60ea9f7d740ebc958c9c96f45a45eba5266
 
     public function getDebugInfo()
     {
-        return array (  217 => 54,  207 => 50,  203 => 49,  199 => 48,  195 => 47,  191 => 46,  187 => 45,  184 => 44,  180 => 43,  159 => 26,  149 => 25,  136 => 22,  126 => 21,  113 => 16,  107 => 13,  104 => 12,  102 => 11,  96 => 9,  90 => 6,  80 => 5,  61 => 3,  38 => 1,);
+        return array (  281 => 94,  271 => 90,  267 => 89,  263 => 88,  259 => 87,  255 => 86,  251 => 85,  248 => 84,  244 => 83,  231 => 73,  227 => 72,  214 => 62,  210 => 61,  197 => 51,  193 => 50,  180 => 40,  176 => 39,  159 => 26,  149 => 25,  136 => 22,  126 => 21,  113 => 16,  107 => 13,  104 => 12,  102 => 11,  96 => 9,  90 => 6,  80 => 5,  61 => 3,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -279,10 +343,50 @@ class __TwigTemplate_d939a95f24be96f953f239bf60ea9f7d740ebc958c9c96f45a45eba5266
         <thead class=\"thead-dark\">
             <tr>
                 <th scope=\"col\">#</th>
-                <th scope=\"col\">Username</th>
-                <th scope=\"col\">First name</th>
-                <th scope=\"col\">Last name</th>
-                <th scope=\"col\">email</th>
+                <th scope=\"col\">
+                    <div class=\"dropdown\">
+                        <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                            Username
+                        </button>
+                        <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">
+                            <a class=\"dropdown-item sortByUsername\" href=\"{{ path('sort_by_value', {'order':'ASC', 'value':'username'} ) }}\">A-Z</a>
+                            <a class=\"dropdown-item sortByUsername\" href=\"{{ path('sort_by_value', {'order':'DESC', 'value':'username'} ) }}\">Z-A</a>
+                        </div>
+                    </div>
+                </th>
+                <th scope=\"col\">
+                    <div class=\"dropdown\">
+                        <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                            First name
+                        </button>
+                        <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">
+                            <a class=\"dropdown-item sortByUsername\" href=\"{{ path('sort_by_value', {'order':'ASC', 'value':'firstname'} ) }}\">A-Z</a>
+                            <a class=\"dropdown-item sortByUsername\" href=\"{{ path('sort_by_value', {'order':'DESC', 'value':'firstname'} ) }}\">Z-A</a>
+                        </div>
+                    </div>
+                </th>
+                <th scope=\"col\">
+                    <div class=\"dropdown\">
+                        <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                            Last name
+                        </button>
+                        <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">
+                            <a class=\"dropdown-item sortByUsername\" href=\"{{ path('sort_by_value', {'order':'ASC', 'value':'lastname'} ) }}\">A-Z</a>
+                            <a class=\"dropdown-item sortByUsername\" href=\"{{ path('sort_by_value', {'order':'DESC', 'value':'lastname'} ) }}\">Z-A</a>
+                        </div>
+                    </div>
+                </th>
+                <th scope=\"col\">
+                    <div class=\"dropdown\">
+                        <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                            email
+                        </button>
+                        <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">
+                            <a class=\"dropdown-item sortByUsername\" href=\"{{ path('sort_by_value', {'order':'ASC', 'value':'email'} ) }}\">A-Z</a>
+                            <a class=\"dropdown-item sortByUsername\" href=\"{{ path('sort_by_value', {'order':'DESC', 'value':'email'} ) }}\">Z-A</a>
+                        </div>
+                    </div>
+                </th>
                 <th scope=\"col\">delete</th>
             </tr>
         </thead>

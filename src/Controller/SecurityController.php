@@ -97,12 +97,16 @@ class SecurityController extends AbstractController
             if ($form['agreeTerms']->getData() === true) {
                 $user->agreedTermsAt();
             }
+            try {
+                $em = $this->getDoctrine()->getManager();
 
-            $em = $this->getDoctrine()->getManager();
-
-            //try {
+                //try {
                 $em->persist($user);
                 $em->flush();
+            } catch (\Exception) {
+                $this->get('session')->getFlashBag()->set('error', 'user already exists');
+                 return $this->redirectToRoute("app_registration");
+            }
 
                     return $this->redirectToRoute('app_login', ['message' => "registration successfull, please sign in"] );
 

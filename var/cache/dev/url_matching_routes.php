@@ -48,29 +48,34 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/d(?'
-                    .'|elete/(?'
-                        .'|user/([^/]++)(*:196)'
-                        .'|album/([^/]++)(*:218)'
-                        .'|image/([^/]++)(*:240)'
-                    .')'
-                    .'|ownload/image/([^/]++)(*:271)'
-                .')'
-                .'|/fetch/album/images/([^/]++)(*:308)'
                 .'|/a(?'
-                    .'|dd/(?'
-                        .'|t(?'
-                            .'|o/album/([^/]++)(*:347)'
-                            .'|ags/([^/]++)(*:367)'
+                    .'|d(?'
+                        .'|min/(?'
+                            .'|delete/user/([^/]++)(*:205)'
+                            .'|sort/by/([^/]++)/([^/]++)(*:238)'
                         .')'
-                        .'|comment/([^/]++)(*:392)'
+                        .'|d/(?'
+                            .'|t(?'
+                                .'|o/album/([^/]++)(*:272)'
+                                .'|ags/([^/]++)(*:292)'
+                            .')'
+                            .'|comment/([^/]++)(*:317)'
+                        .')'
                     .')'
                     .'|pi(?'
-                        .'|(?:/(index)(?:\\.([^/]++))?)?(*:434)'
+                        .'|(?:/(index)(?:\\.([^/]++))?)?(*:360)'
                         .'|/(?'
-                            .'|docs(?:\\.([^/]++))?(*:465)'
-                            .'|contexts/(.+)(?:\\.([^/]++))?(*:501)'
+                            .'|docs(?:\\.([^/]++))?(*:391)'
+                            .'|contexts/(.+)(?:\\.([^/]++))?(*:427)'
                             .'|images(?'
+                                .'|(?:\\.([^/]++))?(?'
+                                    .'|(*:462)'
+                                .')'
+                                .'|/([^/\\.]++)(?:\\.([^/]++))?(?'
+                                    .'|(*:500)'
+                                .')'
+                            .')'
+                            .'|users(?'
                                 .'|(?:\\.([^/]++))?(?'
                                     .'|(*:536)'
                                 .')'
@@ -78,44 +83,44 @@ return [
                                     .'|(*:574)'
                                 .')'
                             .')'
-                            .'|users(?'
-                                .'|(?:\\.([^/]++))?(?'
-                                    .'|(*:610)'
-                                .')'
-                                .'|/([^/\\.]++)(?:\\.([^/]++))?(?'
-                                    .'|(*:648)'
-                                .')'
-                            .')'
                         .')'
                     .')'
                 .')'
-                .'|/remove/from/album/([^/]++)(*:688)'
+                .'|/fetch/album/images/([^/]++)(*:615)'
+                .'|/remove/from/album/([^/]++)(*:650)'
+                .'|/d(?'
+                    .'|elete/(?'
+                        .'|album/([^/]++)(*:686)'
+                        .'|image/([^/]++)(*:708)'
+                    .')'
+                    .'|ownload/image/([^/]++)(*:739)'
+                .')'
                 .'|/l(?'
-                    .'|atest/photos/([^/]++)(*:722)'
-                    .'|ike/photo/([^/]++)(*:748)'
+                    .'|atest/photos/([^/]++)(*:774)'
+                    .'|ike/photo/([^/]++)(*:800)'
                 .')'
                 .'|/p(?'
-                    .'|hoto/([^/]++)(*:775)'
-                    .'|ublic/photo/([^/]++)(*:803)'
+                    .'|hoto/([^/]++)(*:827)'
+                    .'|ublic/photo/([^/]++)(*:855)'
                 .')'
                 .'|/send/(?'
-                    .'|photo/([^/]++)(*:835)'
-                    .'|fullPhoto/([^/]++)(*:861)'
+                    .'|photo/([^/]++)(*:887)'
+                    .'|fullPhoto/([^/]++)(*:913)'
                 .')'
-                .'|/get/image/info/([^/]++)(*:894)'
+                .'|/get/image/info/([^/]++)(*:946)'
                 .'|/m(?'
                     .'|ake/p(?'
-                        .'|ublic/([^/]++)(*:929)'
-                        .'|rivate/([^/]++)(*:952)'
+                        .'|ublic/([^/]++)(*:981)'
+                        .'|rivate/([^/]++)(*:1004)'
                     .')'
                     .'|edia/cache/resolve/(?'
-                        .'|([A-z0-9_-]*)/rc/([^/]++)/(.+)(*:1013)'
-                        .'|([A-z0-9_-]*)/(.+)(*:1040)'
+                        .'|([A-z0-9_-]*)/rc/([^/]++)/(.+)(*:1066)'
+                        .'|([A-z0-9_-]*)/(.+)(*:1093)'
                     .')'
                 .')'
                 .'|/u(?'
-                    .'|ser/([^/]++)/update(*:1075)'
-                    .'|nlike/photo/([^/]++)(*:1104)'
+                    .'|ser/([^/]++)/update(*:1128)'
+                    .'|nlike/photo/([^/]++)(*:1157)'
                 .')'
             .')/?$}sDu',
     ],
@@ -127,51 +132,52 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        196 => [[['_route' => 'delete_user', '_controller' => 'App\\Controller\\AdminController::deleteUser'], ['id'], null, null, false, true, null]],
-        218 => [[['_route' => 'delete_album', '_controller' => 'App\\Controller\\AlbumController::deleteAlbum'], ['name'], ['DELETE' => 0], null, false, true, null]],
-        240 => [[['_route' => 'delete_image', '_controller' => 'App\\Controller\\ImageController::deleteImage'], ['filename'], ['DELETE' => 0], null, false, true, null]],
-        271 => [[['_route' => 'download_image', '_controller' => 'App\\Controller\\ImageController::downloadImage'], ['filename'], ['GET' => 0], null, false, true, null]],
-        308 => [[['_route' => 'fetch_album_images', '_controller' => 'App\\Controller\\AlbumController::provideAlbumImages'], ['albumName'], ['GET' => 0], null, false, true, null]],
-        347 => [[['_route' => 'add_to_album', '_controller' => 'App\\Controller\\AlbumController::addToAlbum'], ['albumName'], ['POST' => 0], null, false, true, null]],
-        367 => [[['_route' => 'add_tags', '_controller' => 'App\\Controller\\TagController::addTag'], ['filename'], null, null, false, true, null]],
-        392 => [[['_route' => 'add_comment', '_controller' => 'App\\Controller\\SharedImagesController::addComment'], ['filename'], ['POST' => 0], null, false, true, null]],
-        434 => [[['_route' => 'api_entrypoint', '_controller' => 'api_platform.action.entrypoint', '_format' => '', '_api_respond' => 'true', 'index' => 'index'], ['index', '_format'], null, null, false, true, null]],
-        465 => [[['_route' => 'api_doc', '_controller' => 'api_platform.action.documentation', '_format' => '', '_api_respond' => 'true'], ['_format'], null, null, false, true, null]],
-        501 => [[['_route' => 'api_jsonld_context', '_controller' => 'api_platform.jsonld.action.context', '_format' => 'jsonld', '_api_respond' => 'true'], ['shortName', '_format'], null, null, false, true, null]],
-        536 => [
+        205 => [[['_route' => 'delete_user', '_controller' => 'App\\Controller\\AdminController::deleteUser'], ['id'], null, null, false, true, null]],
+        238 => [[['_route' => 'sort_by_value', '_controller' => 'App\\Controller\\AdminController::sortByUsername'], ['value', 'order'], null, null, false, true, null]],
+        272 => [[['_route' => 'add_to_album', '_controller' => 'App\\Controller\\AlbumController::addToAlbum'], ['albumName'], ['POST' => 0], null, false, true, null]],
+        292 => [[['_route' => 'add_tags', '_controller' => 'App\\Controller\\TagController::addTag'], ['filename'], null, null, false, true, null]],
+        317 => [[['_route' => 'add_comment', '_controller' => 'App\\Controller\\SharedImagesController::addComment'], ['filename'], ['POST' => 0], null, false, true, null]],
+        360 => [[['_route' => 'api_entrypoint', '_controller' => 'api_platform.action.entrypoint', '_format' => '', '_api_respond' => 'true', 'index' => 'index'], ['index', '_format'], null, null, false, true, null]],
+        391 => [[['_route' => 'api_doc', '_controller' => 'api_platform.action.documentation', '_format' => '', '_api_respond' => 'true'], ['_format'], null, null, false, true, null]],
+        427 => [[['_route' => 'api_jsonld_context', '_controller' => 'api_platform.jsonld.action.context', '_format' => 'jsonld', '_api_respond' => 'true'], ['shortName', '_format'], null, null, false, true, null]],
+        462 => [
             [['_route' => 'api_images_get_collection', '_controller' => 'api_platform.action.get_collection', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Image', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_collection_operation_name' => 'get'], ['_format'], ['GET' => 0], null, false, true, null],
             [['_route' => 'api_images_post_collection', '_controller' => 'api_platform.action.post_collection', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Image', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_collection_operation_name' => 'post'], ['_format'], ['POST' => 0], null, false, true, null],
         ],
-        574 => [
+        500 => [
             [['_route' => 'api_images_get_item', '_controller' => 'api_platform.action.get_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Image', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'get'], ['id', '_format'], ['GET' => 0], null, false, true, null],
             [['_route' => 'api_images_delete_item', '_controller' => 'api_platform.action.delete_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Image', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'delete'], ['id', '_format'], ['DELETE' => 0], null, false, true, null],
             [['_route' => 'api_images_put_item', '_controller' => 'api_platform.action.put_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Image', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'put'], ['id', '_format'], ['PUT' => 0], null, false, true, null],
             [['_route' => 'api_images_patch_item', '_controller' => 'api_platform.action.patch_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\Image', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'patch'], ['id', '_format'], ['PATCH' => 0], null, false, true, null],
         ],
-        610 => [
+        536 => [
             [['_route' => 'api_users_get_collection', '_controller' => 'api_platform.action.get_collection', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\User', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_collection_operation_name' => 'get'], ['_format'], ['GET' => 0], null, false, true, null],
             [['_route' => 'api_users_post_collection', '_controller' => 'api_platform.action.post_collection', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\User', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_collection_operation_name' => 'post'], ['_format'], ['POST' => 0], null, false, true, null],
         ],
-        648 => [
+        574 => [
             [['_route' => 'api_users_get_item', '_controller' => 'api_platform.action.get_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\User', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'get'], ['id', '_format'], ['GET' => 0], null, false, true, null],
             [['_route' => 'api_users_delete_item', '_controller' => 'api_platform.action.delete_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\User', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'delete'], ['id', '_format'], ['DELETE' => 0], null, false, true, null],
             [['_route' => 'api_users_put_item', '_controller' => 'api_platform.action.put_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\User', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'put'], ['id', '_format'], ['PUT' => 0], null, false, true, null],
             [['_route' => 'api_users_patch_item', '_controller' => 'api_platform.action.patch_item', '_format' => null, '_stateless' => null, '_api_resource_class' => 'App\\Entity\\User', '_api_identifiers' => ['id'], '_api_has_composite_identifier' => false, '_api_item_operation_name' => 'patch'], ['id', '_format'], ['PATCH' => 0], null, false, true, null],
         ],
-        688 => [[['_route' => 'remove_from_album', '_controller' => 'App\\Controller\\AlbumController::removeFromAlbum'], ['albumName'], ['POST' => 0], null, false, true, null]],
-        722 => [[['_route' => 'latest_photos', '_controller' => 'App\\Controller\\ImageController::latestPhotosAjax'], ['originalFilename'], ['GET' => 0], null, false, true, null]],
-        748 => [[['_route' => 'like_photo', '_controller' => 'App\\Controller\\SharedImagesController::likeImage'], ['filename'], ['POST' => 0], null, false, true, null]],
-        775 => [[['_route' => 'send_thumbnail', '_controller' => 'App\\Controller\\ImageController::thumbnailImage'], ['filename'], ['GET' => 0], null, false, true, null]],
-        803 => [[['_route' => 'send_public_thumbnail', '_controller' => 'App\\Controller\\ImageController::thumbnailPublicImage'], ['filename'], ['GET' => 0], null, false, true, null]],
-        835 => [[['_route' => 'latest_image', '_controller' => 'App\\Controller\\ImageController::latestPhotosByOriginalName'], ['originalName'], ['GET' => 0], null, false, true, null]],
-        861 => [[['_route' => 'send_full_photo', '_controller' => 'App\\Controller\\ImageController::sendPhoto'], ['filename'], null, null, false, true, null]],
-        894 => [[['_route' => 'get_image_info', '_controller' => 'App\\Controller\\ImageController::getimageInfo'], ['filename'], ['GET' => 0], null, false, true, null]],
-        929 => [[['_route' => 'make_public', '_controller' => 'App\\Controller\\ImageController::makePublic'], ['filename'], ['POST' => 0], null, false, true, null]],
-        952 => [[['_route' => 'make_private', '_controller' => 'App\\Controller\\ImageController::makePrivate'], ['filename'], ['POST' => 0], null, false, true, null]],
-        1013 => [[['_route' => 'liip_imagine_filter_runtime', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterRuntimeAction'], ['filter', 'hash', 'path'], ['GET' => 0], null, false, true, null]],
-        1040 => [[['_route' => 'liip_imagine_filter', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterAction'], ['filter', 'path'], ['GET' => 0], null, false, true, null]],
-        1075 => [[['_route' => 'app_update', '_controller' => 'App\\Controller\\SecurityController::update'], ['id'], null, null, false, false, null]],
-        1104 => [
+        615 => [[['_route' => 'fetch_album_images', '_controller' => 'App\\Controller\\AlbumController::provideAlbumImages'], ['albumName'], ['GET' => 0], null, false, true, null]],
+        650 => [[['_route' => 'remove_from_album', '_controller' => 'App\\Controller\\AlbumController::removeFromAlbum'], ['albumName'], ['POST' => 0], null, false, true, null]],
+        686 => [[['_route' => 'delete_album', '_controller' => 'App\\Controller\\AlbumController::deleteAlbum'], ['name'], ['DELETE' => 0], null, false, true, null]],
+        708 => [[['_route' => 'delete_image', '_controller' => 'App\\Controller\\ImageController::deleteImage'], ['filename'], ['DELETE' => 0], null, false, true, null]],
+        739 => [[['_route' => 'download_image', '_controller' => 'App\\Controller\\ImageController::downloadImage'], ['filename'], ['GET' => 0], null, false, true, null]],
+        774 => [[['_route' => 'latest_photos', '_controller' => 'App\\Controller\\ImageController::latestPhotosAjax'], ['originalFilename'], ['GET' => 0], null, false, true, null]],
+        800 => [[['_route' => 'like_photo', '_controller' => 'App\\Controller\\SharedImagesController::likeImage'], ['filename'], ['POST' => 0], null, false, true, null]],
+        827 => [[['_route' => 'send_thumbnail', '_controller' => 'App\\Controller\\ImageController::thumbnailImage'], ['filename'], ['GET' => 0], null, false, true, null]],
+        855 => [[['_route' => 'send_public_thumbnail', '_controller' => 'App\\Controller\\ImageController::thumbnailPublicImage'], ['filename'], ['GET' => 0], null, false, true, null]],
+        887 => [[['_route' => 'latest_image', '_controller' => 'App\\Controller\\ImageController::latestPhotosByOriginalName'], ['originalName'], ['GET' => 0], null, false, true, null]],
+        913 => [[['_route' => 'send_full_photo', '_controller' => 'App\\Controller\\ImageController::sendPhoto'], ['filename'], null, null, false, true, null]],
+        946 => [[['_route' => 'get_image_info', '_controller' => 'App\\Controller\\ImageController::getimageInfo'], ['filename'], ['GET' => 0], null, false, true, null]],
+        981 => [[['_route' => 'make_public', '_controller' => 'App\\Controller\\ImageController::makePublic'], ['filename'], ['POST' => 0], null, false, true, null]],
+        1004 => [[['_route' => 'make_private', '_controller' => 'App\\Controller\\ImageController::makePrivate'], ['filename'], ['POST' => 0], null, false, true, null]],
+        1066 => [[['_route' => 'liip_imagine_filter_runtime', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterRuntimeAction'], ['filter', 'hash', 'path'], ['GET' => 0], null, false, true, null]],
+        1093 => [[['_route' => 'liip_imagine_filter', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterAction'], ['filter', 'path'], ['GET' => 0], null, false, true, null]],
+        1128 => [[['_route' => 'app_update', '_controller' => 'App\\Controller\\SecurityController::update'], ['id'], null, null, false, false, null]],
+        1157 => [
             [['_route' => 'unlike_photo', '_controller' => 'App\\Controller\\SharedImagesController::unlikeImage'], ['filename'], ['POST' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

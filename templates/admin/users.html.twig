@@ -30,10 +30,50 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Username</th>
-                <th scope="col">First name</th>
-                <th scope="col">Last name</th>
-                <th scope="col">email</th>
+                <th scope="col">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Username
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item sortByUsername" href="{{ path('sort_by_value', {'order':'ASC', 'value':'username'} ) }}">A-Z</a>
+                            <a class="dropdown-item sortByUsername" href="{{ path('sort_by_value', {'order':'DESC', 'value':'username'} ) }}">Z-A</a>
+                        </div>
+                    </div>
+                </th>
+                <th scope="col">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            First name
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item sortByUsername" href="{{ path('sort_by_value', {'order':'ASC', 'value':'firstname'} ) }}">A-Z</a>
+                            <a class="dropdown-item sortByUsername" href="{{ path('sort_by_value', {'order':'DESC', 'value':'firstname'} ) }}">Z-A</a>
+                        </div>
+                    </div>
+                </th>
+                <th scope="col">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Last name
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item sortByUsername" href="{{ path('sort_by_value', {'order':'ASC', 'value':'lastname'} ) }}">A-Z</a>
+                            <a class="dropdown-item sortByUsername" href="{{ path('sort_by_value', {'order':'DESC', 'value':'lastname'} ) }}">Z-A</a>
+                        </div>
+                    </div>
+                </th>
+                <th scope="col">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            email
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item sortByUsername" href="{{ path('sort_by_value', {'order':'ASC', 'value':'email'} ) }}">A-Z</a>
+                            <a class="dropdown-item sortByUsername" href="{{ path('sort_by_value', {'order':'DESC', 'value':'email'} ) }}">Z-A</a>
+                        </div>
+                    </div>
+                </th>
                 <th scope="col">delete</th>
             </tr>
         </thead>
