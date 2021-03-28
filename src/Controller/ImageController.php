@@ -332,7 +332,7 @@ class ImageController extends AbstractController
         $image = $this->imageRepository->findOneBy(['originalName' => $filename]);
         if (($image->getOwner() === $this->security->getUser()) || $image->getPublic()) {
             return $this->json($image, 200, [], [
-                'groups' => ['share']
+                'groups' => ['image']
             ]);
         } else {
             return $this->json("Not authorized to view info", 401);
@@ -392,5 +392,11 @@ class ImageController extends AbstractController
         return $this->json("Not authorized to delete this file ", 401);
     }
 
+
+
+
+    public function downloadMultiple() {
+
+    }
 
 }

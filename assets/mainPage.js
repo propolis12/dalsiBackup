@@ -636,7 +636,8 @@ function reloadEditingTools() {
 const tagContainer = document.querySelector('#forTagsSearch');
 const inputTagsSearch = document.querySelector('#tag-container input');
 
-const tagContainerEdit = document.querySelector('#forTags')
+ const tagContainerEdit = document.querySelector('#forTags')
+//const tagContainerEdit = document.querySelector('#rowForTags')
 const inputTagEdit = document.querySelector('#addTagInput')
 
 let tags = [];
@@ -773,7 +774,8 @@ $(document).on('click', '#addTagButton' , async function () {
         await insertTags(selected[i], inpuTags)
     }
     inpuTags = []
-    $('#forTags').html('')
+    //$('#forTags').html('')
+    tagContainerEdit.html('')
     console.log(inpuTags + " toto su tags")
     reloadEditingTools()
     await updateCurrentImages()
@@ -833,7 +835,8 @@ $(document).on('click', '#searchTagsButton', async function() {
 
     console.log(resultImages)
     tags = []
-    $('#forTagsSearch').html('')
+    //$('#forTagsSearch').html('')
+    tagContainerEdit.html('')
     console.log("------------------------------------------------------------------------------------------------")
     for (i = 0 ; i < resultImages.length ; i ++) {
         console.log(resultImages[i]["originalName"])

@@ -195,7 +195,7 @@ class __TwigTemplate_8642fa0bd79d749470198aab36db383efd063da0c109f6843668c5ae9fe
         echo "</li>
                                 <li class=\"dropdown\">
                                     <a class=\"nav-link\" data-toggle=\"dropdown\" href=\"#\" title=\"Account Menu\" id=\"dropdownMenuButton\" aria-haspopup=\"true\" aria-expanded=\"false\">
-                                        <img class=\"user-img\" src=\"https://static.toiimg.com/photo/72975551.cms\">
+                                       <!-- <img class=\"user-img\" src=\"https://static.toiimg.com/photo/72975551.cms\">-->
                                         <i class=\"fa fa-chevron-down pl-1\" onclick=\"\"></i>
                                     </a>
                                     <div class=\"dropdown-menu dropdown-menu-right p-0\" aria-labelledby=\"dropdownMenuButton\">
@@ -360,7 +360,7 @@ class __TwigTemplate_8642fa0bd79d749470198aab36db383efd063da0c109f6843668c5ae9fe
                                 <li>{% if is_granted(\"ROLE_USER\") %} <p class=\"text-white mb-0\"> {{ app.user.username|e('js') }}</p> {% endif %}</li>
                                 <li class=\"dropdown\">
                                     <a class=\"nav-link\" data-toggle=\"dropdown\" href=\"#\" title=\"Account Menu\" id=\"dropdownMenuButton\" aria-haspopup=\"true\" aria-expanded=\"false\">
-                                        <img class=\"user-img\" src=\"https://static.toiimg.com/photo/72975551.cms\">
+                                       <!-- <img class=\"user-img\" src=\"https://static.toiimg.com/photo/72975551.cms\">-->
                                         <i class=\"fa fa-chevron-down pl-1\" onclick=\"\"></i>
                                     </a>
                                     <div class=\"dropdown-menu dropdown-menu-right p-0\" aria-labelledby=\"dropdownMenuButton\">

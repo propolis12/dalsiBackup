@@ -333,13 +333,16 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
 
                 </div>
             </nav>
+            <div class=\"row\" id=\"rowForTags\">
+
+            </div>
             <button type=\"button\" id=\"sidebarCollapse\" class=\"btn btn-info\">
                 <i id=\"collapseButton\" class=\"fas fa-arrow-circle-right\"></i>
             </button>
 
 
                     <form id=\"dropzone\" action=\"";
-        // line 178
+        // line 181
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("dropzone_upload");
         echo "\" method=\"POST\" enctype=\"multipart/form-data\" class=\"dropzone js-reference-dropzone\">
                         <input type=\"hidden\" id=\"hiddenDropzoneInput\">
@@ -350,14 +353,14 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
 
 
                     <div id=\"photo-list\" class=\"row js-photo-list\" data-url=\"";
-        // line 186
+        // line 189
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("get_owned_images");
         echo "\">
 
 
 
                         ";
-        // line 197
+        // line 200
         echo "
                         <script>
 
@@ -398,7 +401,7 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
 
     public function getDebugInfo()
     {
-        return array (  361 => 197,  354 => 186,  343 => 178,  201 => 39,  196 => 38,  186 => 37,  176 => 34,  172 => 32,  169 => 31,  167 => 30,  157 => 29,  142 => 23,  138 => 22,  135 => 21,  133 => 20,  129 => 18,  125 => 16,  122 => 15,  116 => 12,  106 => 11,  91 => 4,  81 => 3,  62 => 2,  39 => 1,);
+        return array (  364 => 200,  357 => 189,  346 => 181,  201 => 39,  196 => 38,  186 => 37,  176 => 34,  172 => 32,  169 => 31,  167 => 30,  157 => 29,  142 => 23,  138 => 22,  135 => 21,  133 => 20,  129 => 18,  125 => 16,  122 => 15,  116 => 12,  106 => 11,  91 => 4,  81 => 3,  62 => 2,  39 => 1,);
     }
 
     public function getSourceContext()
@@ -575,6 +578,9 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
 
                 </div>
             </nav>
+            <div class=\"row\" id=\"rowForTags\">
+
+            </div>
             <button type=\"button\" id=\"sidebarCollapse\" class=\"btn btn-info\">
                 <i id=\"collapseButton\" class=\"fas fa-arrow-circle-right\"></i>
             </button>
