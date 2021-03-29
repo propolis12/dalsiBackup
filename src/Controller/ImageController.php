@@ -332,7 +332,7 @@ class ImageController extends AbstractController
         $image = $this->imageRepository->findOneBy(['originalName' => $filename]);
         if (($image->getOwner() === $this->security->getUser()) || $image->getPublic()) {
             return $this->json($image, 200, [], [
-                'groups' => ['image']
+                'groups' => ['share']
             ]);
         } else {
             return $this->json("Not authorized to view info", 401);

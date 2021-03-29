@@ -774,8 +774,8 @@ $(document).on('click', '#addTagButton' , async function () {
         await insertTags(selected[i], inpuTags)
     }
     inpuTags = []
-    //$('#forTags').html('')
-    tagContainerEdit.html('')
+    $('#forTags').html('')
+    //tagContainerEdit.html('')
     console.log(inpuTags + " toto su tags")
     reloadEditingTools()
     await updateCurrentImages()
@@ -835,8 +835,8 @@ $(document).on('click', '#searchTagsButton', async function() {
 
     console.log(resultImages)
     tags = []
-    //$('#forTagsSearch').html('')
-    tagContainerEdit.html('')
+    $('#forTagsSearch').html('')
+    //tagContainerEdit.html('')
     console.log("------------------------------------------------------------------------------------------------")
     for (i = 0 ; i < resultImages.length ; i ++) {
         console.log(resultImages[i]["originalName"])
