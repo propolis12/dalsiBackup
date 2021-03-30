@@ -39,6 +39,7 @@ return [
     'make_public' => [['filename'], ['_controller' => 'App\\Controller\\ImageController::makePublic'], [], [['variable', '/', '[^/]++', 'filename', true], ['text', '/make/public']], [], []],
     'make_private' => [['filename'], ['_controller' => 'App\\Controller\\ImageController::makePrivate'], [], [['variable', '/', '[^/]++', 'filename', true], ['text', '/make/private']], [], []],
     'download_image' => [['filename'], ['_controller' => 'App\\Controller\\ImageController::downloadImage'], [], [['variable', '/', '[^/]++', 'filename', true], ['text', '/download/image']], [], []],
+    'download_multiple' => [[], ['_controller' => 'App\\Controller\\ImageController::downloadMultiple'], [], [['text', '/download/multiple']], [], []],
     'main_page' => [[], ['_controller' => 'App\\Controller\\MainPageController::uploadFileAction'], [], [['text', '/']], [], []],
     'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],

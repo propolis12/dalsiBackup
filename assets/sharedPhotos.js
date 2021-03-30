@@ -297,7 +297,7 @@ $(document).on('keyup', '.commentInput', async function (event) {
         var filename = $(this).parent().siblings('.thumbnailImageShared').data('name')
         var comment = event.target.value
         await addComment(comment, filename)
-        var imageInfo = await getImageInfo(filename)
+        var imageInfo = await getImageInfo(filename, "share")
         $(this).siblings('.commentValues').html('')
         console.log(imageInfo)
         for (var i = 0; i < imageInfo.data["comments"].length; i++) {

@@ -24,8 +24,10 @@ export function fetchImages() {
     return axios.get('/get/images');
 }
 
-export function getImageInfo(filename) {
-    return axios.get('/get/image/info/' + filename)
+export function getImageInfo(filename, group) {
+    return axios.post('/get/image/info/' + filename ,{
+        "group": group,
+    })
 }
 
 export function makePublic(filename) {
@@ -54,4 +56,14 @@ export function unlikePhoto(filename) {
 export function downloadImage(filename) {
     return location.href = ('/download/image/' + filename)
     //return axios.get('/download/image/' + filename)
+
 }
+
+export function downloadMultipleImages(filenames) {
+    return location.href = ('download/multiple?array=' + filenames)
+   /* return axios.post("/download/multiple", {
+        "filenames": filenames
+    }).then( e => location.href = ("/"))*/
+}
+
+

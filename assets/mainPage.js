@@ -7,7 +7,7 @@ import {
     deleteImage,
     fetchImages,
     getImageInfo,
-    makePublic, makePrivate, downloadImage
+    makePublic, makePrivate, downloadImage, downloadMultipleImages
 } from "@/services/images-service";
 import {
     postAlbum,
@@ -873,7 +873,7 @@ async function updateCurrentImages() {
     var tempImage
     console.log(currentImages)
     for (var i = 0; i < currentImages.length; i++) {
-       tempImage =  await getImageInfo(currentImages[i]["originalName"])
+       tempImage =  await getImageInfo(currentImages[i]["originalName"], "image")
         currentImages[i] = tempImage.data
     }
     console.log("current images po update ------------------------------------------------------")
@@ -917,7 +917,22 @@ $(document).on('click', '#albumListToggler', function () {
 
 
 $(document).on('click', '#downloadImagesNav' , async function () {
-    for (var i = 0 ; i < selected.length ; i++ ) {
-        await downloadImage(selected[i])
+    if (selected.length > 1) {
+        await downloadMultipleImages(selected)
+        return
     }
+
+        await downloadImage(selected[0])
+
 })
+
+
+/*openWindowWithPost("/download/multiple" , {
+    filenames: selected,
+});*/
+
+
+
+
+
+

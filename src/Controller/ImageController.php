@@ -27,6 +27,7 @@ use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\Mime\MimeTypes;
+use ZipArchive;
 
 class ImageController extends AbstractController
 {
@@ -325,14 +326,15 @@ class ImageController extends AbstractController
 
 
     /**
-     * @Route("/get/image/info/{filename}" , name="get_image_info" , methods={"GET"})
+     * @Route("/get/image/info/{filename}" , name="get_image_info" , methods={"POST"})
      */
     public function getimageInfo(string $filename, Request $request) {
+        $group = json_decode($request->getContent(),true);
         /** @var Image $image */
         $image = $this->imageRepository->findOneBy(['originalName' => $filename]);
         if (($image->getOwner() === $this->security->getUser()) || $image->getPublic()) {
             return $this->json($image, 200, [], [
-                'groups' => ['share']
+                'groups' => [$group["group"]]
             ]);
         } else {
             return $this->json("Not authorized to view info", 401);
@@ -393,10 +395,36 @@ class ImageController extends AbstractController
     }
 
 
+    /**
+     * @return JsonResponse
+     * @Route("/download/multiple" , name="download_multiple")
+     */
+    public function downloadMultiple(Request $request, UploaderHelper $uploaderHelper) {
+
+        $data = ($request->query->get("array"));
+        $array = explode(',', $data);
+
+        $archiveName = "zipDownloadImages";
+        $file_path= '/var/uploadedPhotos/';
+        $zip = new ZipArchive();
+
+        if ($zip->open($archiveName, ZIPARCHIVE::CREATE )!==TRUE) {
+            exit("cannot open <$archiveName>\n");
+        }
+
+        foreach ($array as $filename) {
+            $zip->addFile($uploaderHelper->getFullPath($filename));
+        }
+        $zip->close();
+        header("Content-type: application/zip");
+        header("Content-Disposition: attachment; filename=$archiveName");
+        header("Content-length: " . filesize($archiveName));
+        header("Pragma: no-cache");
+        header("Expires: 0");
+        readfile("$archiveName");
 
 
-    public function downloadMultiple() {
-
+       // return $this->json($array);
     }
 
 }

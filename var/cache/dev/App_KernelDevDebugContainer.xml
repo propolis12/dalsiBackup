@@ -7060,6 +7060,12 @@
         <argument key="entityManager" type="service" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
+    <service id=".service_locator.LUBd5gR" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="uploaderHelper" type="service" id="App\Service\UploaderHelper"/>
+      </argument>
+    </service>
     <service id=".service_locator.vQxyKVO" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7090,10 +7096,11 @@
         <argument key="userPasswordEncoder" type="service" id="security.user_password_encoder.generic"/>
       </argument>
     </service>
-    <service id=".service_locator.5QaIM7." class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.MzQ6DZs" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\ImageController::deleteImage" type="service" id=".service_locator.l2QwsaZ"/>
+        <argument key="App\Controller\ImageController::downloadMultiple" type="service" id=".service_locator.LUBd5gR"/>
         <argument key="App\Controller\ImageController::handleDropzone" type="service" id=".service_locator.n.32Wpi"/>
         <argument key="App\Controller\ImageController::latestPhotosAjax" type="service" id=".service_locator.g6H.xPr"/>
         <argument key="App\Controller\ImageController::makePrivate" type="service" id=".service_locator.l2QwsaZ"/>
@@ -7110,6 +7117,7 @@
         <argument key="kernel::registerContainerConfiguration" type="service" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::terminate" type="service" id=".service_locator.KfwZsne"/>
         <argument key="App\Controller\ImageController:deleteImage" type="service" id=".service_locator.l2QwsaZ"/>
+        <argument key="App\Controller\ImageController:downloadMultiple" type="service" id=".service_locator.LUBd5gR"/>
         <argument key="App\Controller\ImageController:handleDropzone" type="service" id=".service_locator.n.32Wpi"/>
         <argument key="App\Controller\ImageController:latestPhotosAjax" type="service" id=".service_locator.g6H.xPr"/>
         <argument key="App\Controller\ImageController:makePrivate" type="service" id=".service_locator.l2QwsaZ"/>
@@ -7569,12 +7577,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.5QaIM7."/>
+      <argument type="service" id=".service_locator.MzQ6DZs"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.5QaIM7."/>
+      <argument type="service" id=".service_locator.MzQ6DZs"/>
     </service>
     <service id="api_platform.openapi.normalizer.api_gateway.inner" class="ApiPlatform\Core\OpenApi\Serializer\OpenApiNormalizer">
       <argument type="service" id=".1_Serializer~3wM5Llz"/>
@@ -8133,7 +8141,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.Kbr2i2X" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.5QaIM7."/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.MzQ6DZs"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="api_platform.doctrine.listener.mercure.publish" alias="api_platform.doctrine.orm.listener.mercure.publish">
       <deprecated package="api-platform/core" version="2.6">Using "%alias_id%" service is deprecated since API Platform 2.6. Use "api_platform.doctrine.orm.listener.mercure.publish" instead.</deprecated>
