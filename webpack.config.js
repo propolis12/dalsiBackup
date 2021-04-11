@@ -27,13 +27,13 @@ Encore
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
-    .addEntry('app', './assets/app.js')
-    .addEntry('vuePage', './assets/vuePage.js')
+    //.addEntry('app', './assets/app.js')
+    //.addEntry('vuePage', './assets/vuePage.js')
     .addEntry('mainPage', './assets/mainPage.js')
     .addEntry('sharedPhotos', './assets/sharedPhotos.js')
-    .addEntry('userManagement', './assets/userManagement.js')
+    //.addEntry('userManagement', './assets/userManagement.js')
     .addStyleEntry('login', './assets/styles/logn.css')
-    .addStyleEntry('main', './assets/styles/main.css')
+    //.addStyleEntry('main', './assets/styles/main.css')
     .addStyleEntry('register', './assets/styles/register.css')
     //.addStyleEntry('mainPage', './assets/styles/mainPage.css')
 
@@ -70,9 +70,9 @@ Encore
         config.corejs = 3;
     })
 
-    .enableVueLoader( () => {} ,{
+    /*.enableVueLoader( () => {} ,{
         version: 3
-    })
+    })*/
 
 // enables Sass/SCSS support
     .enableSassLoader()

@@ -22,14 +22,14 @@ import './styles/mainPage.css';
 import dropzone from "dropzone";
 import 'dropzone/dist/dropzone.css';
 import $ from 'jquery';
-import MainPage from "./pages/mainPage.vue";
-import { createApp } from "vue";
+//import MainPage from "./pages/mainPage.vue";
+//import { createApp } from "vue";
 //import "./bootstrap-tagsinput"
 //import "./bootstrap-tags/js/bootstrap-tags.js"
 require('bootstrap')
 
 
-createApp(MainPage).mount('#main')
+//createApp(MainPage).mount('#main')
 
 /** to show the image filename in form field */
 $('.custom-file-input').on('change', function (event) {
@@ -355,13 +355,13 @@ async function renderImages() {
     for(var i = 0 ; i < ownedImagesNames.length ; i++) {
         if (i > 30) {
             /** for lazy loading */
-            $('#photo-list').append('<div id=' + i + ' class="thumbnailDiv"><div class="thumbnailIcons" ><i class="far fa-check-circle fa-2x selectable"></i></div> </div>')
+            $('#photo-list').append('<div id=' + i + ' class="thumbnailDiv" ><div class="thumbnailIcons" ><i class="far fa-check-circle fa-2x selectable"></i></div> </div>')
             $('#' + i).append($('<img>',{ realsrc:'/photo/'+ ownedImagesNames[i], src:'', alt: '' , 'data-name': ownedImagesNames[i] ,/* click:  function () { openWindow(this.dataset.name, ownedImagesNames) } , */ class:'thumbnailImage'}))
             continue
         }
         var parent = i;
 
-        $('#photo-list').append('<div id=' + i + ' class="thumbnailDiv"><div class="thumbnailIcons" ><i class="far fa-check-circle fa-2x selectable"></i></div> </div>')
+        $('#photo-list').append('<div id=' + i + ' class="thumbnailDiv " ><div class="thumbnailIcons" ><i class="far fa-check-circle fa-2x selectable"></i></div> </div>')
         $('#' + i).append( $('<img>',{ realsrc:'/photo/'+ ownedImagesNames[i], src:'/photo/'+ ownedImagesNames[i], alt: '' , 'data-name': ownedImagesNames[i] ,/* click:  function () { openWindow(this.dataset.name, ownedImagesNames) }, */ class:'thumbnailImage'} ))
 
     }

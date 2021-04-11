@@ -48,6 +48,17 @@ class SharingToggler {
                $image->setPublishedAt(new \DateTime('now'));
            } else if ($public === false) {
                $image->setPublishedAt(null);
+              /* $likes = $image->getLikes();
+               foreach ($likes as $like) {
+                   $image->removeLike($like);
+                   $this->entityManager->remove($like);
+               }
+               $comments = $image->getComments();
+               foreach ($comments as $comment) {
+                   $image->removeComment($comment);
+                   $this->entityManager->remove($comment);
+               }*/
+              // $this->repository->removeLikedimage($image["originalName"]);
            }
            $this->entityManager->persist($image);
            $this->entityManager->flush();

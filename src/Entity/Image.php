@@ -24,11 +24,11 @@ class Image // implements \JsonSerializable
      */
     private $id;
 
-    /**
+    /*/**
      * @ORM\Column(type="string", length=255)
      * @Groups("image")
      */
-    private $filename;
+   // private $filename;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="images")
@@ -37,17 +37,17 @@ class Image // implements \JsonSerializable
      */
     private $owner;
 
-    /**
+    /*/**
      * @ORM\Column(type="decimal", precision=15, scale=10, nullable=true)
      * @Groups({"image","share"})
      */
-    private $latitude;
+    //private $latitude;
 
-    /**
+    /*/**
      * @ORM\Column(type="decimal", precision=15, scale=10, nullable=true)
      * @Groups({"image","share"})
      */
-    private $longitude;
+    //private $longitude;
 
     /**
      * @ORM\Column(type="boolean")
@@ -55,7 +55,7 @@ class Image // implements \JsonSerializable
     private $public;
 
 
-    private $filePath;
+   // private $filePath;
 
     /**
      * @ORM\Column(type="datetime")
@@ -85,16 +85,11 @@ class Image // implements \JsonSerializable
      */
     private $publishedAt;
 
-   /* /**
-     * @ORM\OneToMany(targetEntity=Like::class, mappedBy="image", orphanRemoval=true)
-     * @Groups("share")
-     */
-    //private Collection $likes;
 
-    /**
+    /*/**
      * @ORM\ManyToMany(targetEntity=User::class, mappedBy="likedImages")
      */
-    private Collection $users;
+    //private Collection $users;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -118,7 +113,7 @@ class Image // implements \JsonSerializable
         $this->albums = new ArrayCollection();
         $this->tags = new ArrayCollection();
         $this->likes = new ArrayCollection();
-        $this->users = new ArrayCollection();
+        //$this->users = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }
 
@@ -129,17 +124,6 @@ class Image // implements \JsonSerializable
         return $this->id;
     }
 
-    public function getFilename(): ?string
-    {
-        return $this->filename;
-    }
-
-    public function setFilename(string $filename): self
-    {
-        $this->filename = $filename;
-
-        return $this;
-    }
 
     public function getOwner(): ?User
     {
@@ -153,29 +137,6 @@ class Image // implements \JsonSerializable
         return $this;
     }
 
-    public function getLatitude(): ?string
-    {
-        return $this->latitude;
-    }
-
-    public function setLatitude(?string $latitude): self
-    {
-        $this->latitude = $latitude;
-
-        return $this;
-    }
-
-    public function getLongitude(): ?string
-    {
-        return $this->longitude;
-    }
-
-    public function setLongitude(?string $longitude): self
-    {
-        $this->longitude = $longitude;
-
-        return $this;
-    }
 
     public function getPublic(): ?bool
     {
@@ -189,7 +150,7 @@ class Image // implements \JsonSerializable
         return $this;
     }
 
-    public function getFilePath(): ?string
+    /*public function getFilePath(): ?string
     {
         return UploaderHelper::IMAGE_DIRECTORY.'/'.$this->getFilename();
     }
@@ -199,7 +160,7 @@ class Image // implements \JsonSerializable
         $this->filePath = $filePath;
 
         return $this;
-    }
+    }*/
 
     public function getUploadedAt(): ?\DateTimeInterface
     {
@@ -302,79 +263,10 @@ class Image // implements \JsonSerializable
         return $this;
     }
 
-    /*/**
-     * @return Collection|Like[]
-     */
-   /* public function getLikes(): Collection
-    {
-        return $this->likes;
-    }*/
-
-    /*public function addLike(Like $like): self
-    {
-        if (!$this->likes->contains($like)) {
-            $this->likes[] = $like;
-            $like->setImage($this);
-        }
-
-        return $this;
-    }*/
-
-    /*public function removeLike(Like $like): self
-    {
-        if ($this->likes->removeElement($like)) {
-            // set the owning side to null (unless already changed)
-            if ($like->getImage() === $this) {
-                $like->setImage(null);
-            }
-        }
-
-        return $this;
-    }
-*/
-    /**
-     * @return Collection|User[]
-     */
-    public function getUsers(): Collection
-    {
-        return $this->users;
-    }
-
-    public function addUser(User $user): self
-    {
-        if (!$this->users->contains($user)) {
-            $this->users[] = $user;
-            $user->addLikedImage($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUser(User $user): self
-    {
-        if ($this->users->removeElement($user)) {
-            $user->removeLikedImage($this);
-        }
-
-        return $this;
-    }
-
-    public function getMimetype(): ?string
-    {
-        return $this->mimetype;
-    }
-
-    public function setMimetype(string $mimetype): self
-    {
-        $this->mimetype = $mimetype;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Like[]
      */
-    public function getLikes(): Collection
+   public function getLikes(): Collection
     {
         return $this->likes;
     }
@@ -400,6 +292,76 @@ class Image // implements \JsonSerializable
 
         return $this;
     }
+
+    /*/**
+     * @return Collection|User[]
+     */
+   /* public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addLikedImage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->removeElement($user)) {
+            $user->removeLikedImage($this);
+        }
+
+        return $this;
+    }
+*/
+    public function getMimetype(): ?string
+    {
+        return $this->mimetype;
+    }
+
+    public function setMimetype(string $mimetype): self
+    {
+        $this->mimetype = $mimetype;
+
+        return $this;
+    }
+
+    /*/**
+     * @return Collection|Like[]
+     */
+    /*public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(Like $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes[] = $like;
+            $like->setImage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(Like $like): self
+    {
+        if ($this->likes->removeElement($like)) {
+            // set the owning side to null (unless already changed)
+            if ($like->getImage() === $this) {
+                $like->setImage(null);
+            }
+        }
+
+        return $this;
+    }
+    */
 
     /**
      * @return Collection|Comment[]

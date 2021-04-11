@@ -79,15 +79,15 @@ class User  implements UserInterface  //, \JsonSerializable
      */
     private $images;
 
-    /**
+    /*/**
      * @ORM\ManyToMany(targetEntity=User::class, inversedBy="friends")
      */
-    private $friend;
+    //private $friend;
 
-    /**
+    /*/**
      * @ORM\ManyToMany(targetEntity=User::class, mappedBy="friend")
      */
-    private $friends;
+    ///private $friends;
 
     /**
      * @ORM\OneToMany(targetEntity=Album::class, mappedBy="owner", orphanRemoval=true)
@@ -99,10 +99,10 @@ class User  implements UserInterface  //, \JsonSerializable
      */
    // private Collection $likes;
 
-    /**
+    /*/**
      * @ORM\ManyToMany(targetEntity=Image::class, inversedBy="users")
      */
-    private $likedImages;
+    //private $likedImages;
 
     /**
      * @ORM\OneToMany(targetEntity=Like::class, mappedBy="user", orphanRemoval=true)
@@ -117,11 +117,11 @@ class User  implements UserInterface  //, \JsonSerializable
     public function __construct()
     {
         $this->images = new ArrayCollection();
-        $this->friend = new ArrayCollection();
-        $this->friends = new ArrayCollection();
+        //$this->friend = new ArrayCollection();
+        //$this->friends = new ArrayCollection();
         $this->albums = new ArrayCollection();
         $this->likes = new ArrayCollection();
-        $this->likedImages = new ArrayCollection();
+        //$this->likedImages = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }
 
@@ -288,10 +288,10 @@ class User  implements UserInterface  //, \JsonSerializable
         return $this;
     }
 
-    /**
+    /*/**
      * @return Collection|self[]
      */
-    public function getFriend(): Collection
+    /*public function getFriend(): Collection
     {
         return $this->friend;
     }
@@ -315,10 +315,10 @@ class User  implements UserInterface  //, \JsonSerializable
     /**
      * @return Collection|self[]
      */
-    public function getFriends(): Collection
+    /*public function getFriends(): Collection
     {
         return $this->friends;
-    }
+    }*/
 
     /**
      * @return Collection|Album[]
@@ -357,60 +357,6 @@ class User  implements UserInterface  //, \JsonSerializable
         ];
     }*/
 
-   /* /**
-     * @return Collection|Like[]
-     */
-    /*public function getLikes(): Collection
-    {
-        return $this->likes;
-    }*/
-
-   /* public function addLike(Like $like): self
-    {
-        if (!$this->likes->contains($like)) {
-            $this->likes[] = $like;
-            $like->setUser($this);
-        }
-
-        return $this;
-    }*/
-
-    /*public function removeLike(Like $like): self
-    {
-        if ($this->likes->removeElement($like)) {
-            // set the owning side to null (unless already changed)
-            if ($like->getUser() === $this) {
-                $like->setUser(null);
-            }
-        }
-
-        return $this;
-    }*/
-
-    /**
-     * @return Collection|Image[]
-     */
-    public function getLikedImages(): Collection
-    {
-        return $this->likedImages;
-    }
-
-    public function addLikedImage(Image $likedImage): self
-    {
-        if (!$this->likedImages->contains($likedImage)) {
-            $this->likedImages[] = $likedImage;
-        }
-
-        return $this;
-    }
-
-    public function removeLikedImage(Image $likedImage): self
-    {
-        $this->likedImages->removeElement($likedImage);
-
-        return $this;
-    }
-
     /**
      * @return Collection|Like[]
      */
@@ -419,7 +365,7 @@ class User  implements UserInterface  //, \JsonSerializable
         return $this->likes;
     }
 
-    public function addLike(Like $like): self
+     public function addLike(Like $like): self
     {
         if (!$this->likes->contains($like)) {
             $this->likes[] = $like;
@@ -440,6 +386,32 @@ class User  implements UserInterface  //, \JsonSerializable
 
         return $this;
     }
+
+    /*/**
+     * @return Collection|Image[]
+     */
+    /*public function getLikedImages(): Collection
+    {
+        return $this->likedImages;
+    }
+
+    public function addLikedImage(Image $likedImage): self
+    {
+        if (!$this->likedImages->contains($likedImage)) {
+            $this->likedImages[] = $likedImage;
+        }
+
+        return $this;
+    }
+
+    public function removeLikedImage(Image $likedImage): self
+    {
+        $this->likedImages->removeElement($likedImage);
+
+        return $this;
+    }
+    */
+
 
     /**
      * @return Collection|Comment[]

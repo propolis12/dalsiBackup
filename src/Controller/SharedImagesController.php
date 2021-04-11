@@ -57,7 +57,7 @@ class SharedImagesController extends AbstractController
         $images = $this->imageRepository->getPublicImages();
         $publicImages = [];
         foreach ($images as $image) {
-            $image["likes"] = $this->imageRepository->getImageLikes($image["originalName"]);
+            $image["likes"] = $this->likeRepository->getImageLikesUsable($image["originalName"]);
             $image["comments"] = $this->imageRepository->getImageComments($image["originalName"]);
             array_push($publicImages , $image);
         }
@@ -68,10 +68,10 @@ class SharedImagesController extends AbstractController
      * @Route("/get/liked/images" , name="liked_images", methods={"GET"})
      */
     public function provideLikedImages() {
-        $images = $this->imageRepository->getLikedImages();
-        return $this->json($images ,200 , [] , [
+        $images = $this->likeRepository->getLikedImagesUsable();
+        return $this->json($images /*,200 , [] , [
             'groups' => ['share']
-        ]);
+        ]*/);
     }
 
 
@@ -84,7 +84,7 @@ class SharedImagesController extends AbstractController
         $like->setImage($image);
         $like->setUser($this->security->getUser());
         $image->addLike($like);
-        $this->security->getUser()->addLikedImage($image);
+        //$this->security->getUser()->addLikedImage($image);
         $this->entityManager->persist($like);
         $this->entityManager->persist($image);
         $this->entityManager->persist($this->security->getUser());
@@ -99,12 +99,12 @@ class SharedImagesController extends AbstractController
      */
     public function unlikeImage(string $filename) {
         $image = $this->imageRepository->findOneBy(['originalName' => $filename]);
-       // $this->likeRepository->removeLike($image);
+        // $this->likeRepository->removeLike($image);
         foreach ($image->getLikes() as $like) {
             if ($like->getUser() === $this->security->getUser()) {
                 $image->removeLike($like);
                 $this->security->getUser()->removeLike($like);
-                $this->security->getUser()->removeLikedImage($image);
+                //$this->security->getUser()->removeLikedImage($image);
                 $this->entityManager->persist($image);
                 $this->entityManager->persist($like);
                 $this->entityManager->persist($this->security->getUser());

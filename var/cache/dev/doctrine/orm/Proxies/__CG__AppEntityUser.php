@@ -66,10 +66,10 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'firstname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lastname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'registeredAt', '' . "\0" . 'App\\Entity\\User' . "\0" . 'agreedTermsAt', '' . "\0" . 'App\\Entity\\User' . "\0" . 'images', '' . "\0" . 'App\\Entity\\User' . "\0" . 'friend', '' . "\0" . 'App\\Entity\\User' . "\0" . 'friends', '' . "\0" . 'App\\Entity\\User' . "\0" . 'albums', '' . "\0" . 'App\\Entity\\User' . "\0" . 'likedImages', '' . "\0" . 'App\\Entity\\User' . "\0" . 'likes', '' . "\0" . 'App\\Entity\\User' . "\0" . 'comments'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'firstname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lastname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'registeredAt', '' . "\0" . 'App\\Entity\\User' . "\0" . 'agreedTermsAt', '' . "\0" . 'App\\Entity\\User' . "\0" . 'images', '' . "\0" . 'App\\Entity\\User' . "\0" . 'albums', '' . "\0" . 'App\\Entity\\User' . "\0" . 'likes', '' . "\0" . 'App\\Entity\\User' . "\0" . 'comments'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'firstname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lastname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'registeredAt', '' . "\0" . 'App\\Entity\\User' . "\0" . 'agreedTermsAt', '' . "\0" . 'App\\Entity\\User' . "\0" . 'images', '' . "\0" . 'App\\Entity\\User' . "\0" . 'friend', '' . "\0" . 'App\\Entity\\User' . "\0" . 'friends', '' . "\0" . 'App\\Entity\\User' . "\0" . 'albums', '' . "\0" . 'App\\Entity\\User' . "\0" . 'likedImages', '' . "\0" . 'App\\Entity\\User' . "\0" . 'likes', '' . "\0" . 'App\\Entity\\User' . "\0" . 'comments'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'firstname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lastname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'registeredAt', '' . "\0" . 'App\\Entity\\User' . "\0" . 'agreedTermsAt', '' . "\0" . 'App\\Entity\\User' . "\0" . 'images', '' . "\0" . 'App\\Entity\\User' . "\0" . 'albums', '' . "\0" . 'App\\Entity\\User' . "\0" . 'likes', '' . "\0" . 'App\\Entity\\User' . "\0" . 'comments'];
     }
 
     /**
@@ -425,50 +425,6 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getFriend(): \Doctrine\Common\Collections\Collection
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFriend', []);
-
-        return parent::getFriend();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function addFriend(\App\Entity\User $friend): \App\Entity\User
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addFriend', [$friend]);
-
-        return parent::addFriend($friend);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function removeFriend(\App\Entity\User $friend): \App\Entity\User
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeFriend', [$friend]);
-
-        return parent::removeFriend($friend);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getFriends(): \Doctrine\Common\Collections\Collection
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFriends', []);
-
-        return parent::getFriends();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function getAlbums(): \Doctrine\Common\Collections\Collection
     {
 
@@ -497,39 +453,6 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeAlbum', [$album]);
 
         return parent::removeAlbum($album);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getLikedImages(): \Doctrine\Common\Collections\Collection
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLikedImages', []);
-
-        return parent::getLikedImages();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function addLikedImage(\App\Entity\Image $likedImage): \App\Entity\User
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addLikedImage', [$likedImage]);
-
-        return parent::addLikedImage($likedImage);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function removeLikedImage(\App\Entity\Image $likedImage): \App\Entity\User
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeLikedImage', [$likedImage]);
-
-        return parent::removeLikedImage($likedImage);
     }
 
     /**

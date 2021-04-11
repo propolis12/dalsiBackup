@@ -136,7 +136,9 @@
     <parameter key="session.metadata.storage_key">_sf2_meta</parameter>
     <parameter key="session.storage.options" type="collection">
       <parameter key="cache_limiter" type="string">0</parameter>
-      <parameter key="cookie_secure">true</parameter>
+      <parameter key="name">picupload</parameter>
+      <parameter key="cookie_lifetime">604800</parameter>
+      <parameter key="cookie_secure">auto</parameter>
       <parameter key="cookie_httponly">true</parameter>
       <parameter key="cookie_samesite">lax</parameter>
       <parameter key="gc_probability">1</parameter>
@@ -603,14 +605,6 @@
       <argument type="service" id="App\Service\ThumbnailProvider"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.OuIzoRA.App\Controller\ImageController"/>
-      </call>
-    </service>
-    <service id="App\Controller\MainPageController" class="App\Controller\MainPageController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <argument type="service" id="kernel"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.OuIzoRA.App\Controller\MainPageController"/>
       </call>
     </service>
     <service id="App\Controller\SecurityController" class="App\Controller\SecurityController" public="true" autowire="true" autoconfigure="true">
@@ -1512,7 +1506,7 @@
       <tag name="container.hot_path"/>
       <tag name="container.hot_path"/>
       <tag name="container.hot_path"/>
-      <argument type="service" id=".service_locator.Hhge9DE"/>
+      <argument type="service" id=".service_locator.LrY.obc"/>
       <argument>true</argument>
     </service>
     <service id="session.marshaller" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\IdentityMarshaller"/>
@@ -3146,8 +3140,8 @@
     <service id="security.http_utils" class="Symfony\Component\Security\Http\HttpUtils">
       <argument type="service" id="router.default" on-invalid="null"/>
       <argument type="service" id="router.default" on-invalid="null"/>
+      <argument>{^https?://%%s$}i</argument>
       <argument>{^https://%%s$}i</argument>
-      <argument>null</argument>
     </service>
     <service id="security.validator.user_password" class="Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator">
       <tag name="validator.constraint_validator" alias="security.validator.user_password"/>
@@ -6667,9 +6661,6 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ImageController" class="App\Controller\ImageController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ImageController" class="App\Controller\ImageController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ImageController" class="App\Controller\ImageController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MainPageController" class="App\Controller\MainPageController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MainPageController" class="App\Controller\MainPageController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\MainPageController" class="App\Controller\MainPageController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -7039,12 +7030,6 @@
         <argument key="loader" type="service" id=".errored..service_locator.KfbR3DY.Symfony\Component\Config\Loader\LoaderInterface"/>
       </argument>
     </service>
-    <service id=".service_locator.g6H.xPr" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="kernel" type="service" id="kernel"/>
-      </argument>
-    </service>
     <service id=".service_locator.n.32Wpi" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7064,16 +7049,6 @@
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="uploaderHelper" type="service" id="App\Service\UploaderHelper"/>
-      </argument>
-    </service>
-    <service id=".service_locator.vQxyKVO" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="entityManager" type="service" id="doctrine.orm.default_entity_manager"/>
-        <argument key="imageRepository" type="service" id="App\Repository\ImageRepository"/>
-        <argument key="security" type="service" id="security.helper"/>
-        <argument key="uploaderHelper" type="service" id="App\Service\UploaderHelper"/>
-        <argument key="validator" type="service" id="api_platform.validator"/>
       </argument>
     </service>
     <service id=".service_locator.UDgw6Ol" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -7096,15 +7071,13 @@
         <argument key="userPasswordEncoder" type="service" id="security.user_password_encoder.generic"/>
       </argument>
     </service>
-    <service id=".service_locator.MzQ6DZs" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.OqdAjLh" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\ImageController::deleteImage" type="service" id=".service_locator.l2QwsaZ"/>
         <argument key="App\Controller\ImageController::downloadMultiple" type="service" id=".service_locator.LUBd5gR"/>
         <argument key="App\Controller\ImageController::handleDropzone" type="service" id=".service_locator.n.32Wpi"/>
-        <argument key="App\Controller\ImageController::latestPhotosAjax" type="service" id=".service_locator.g6H.xPr"/>
         <argument key="App\Controller\ImageController::makePrivate" type="service" id=".service_locator.l2QwsaZ"/>
-        <argument key="App\Controller\MainPageController::uploadFileAction" type="service" id=".service_locator.vQxyKVO"/>
         <argument key="App\Controller\SecurityController::login" type="service" id=".service_locator.UDgw6Ol"/>
         <argument key="App\Controller\SecurityController::logout" type="service" id=".service_locator.KfwZsne"/>
         <argument key="App\Controller\SecurityController::register" type="service" id=".service_locator.hjqTVeC"/>
@@ -7119,9 +7092,7 @@
         <argument key="App\Controller\ImageController:deleteImage" type="service" id=".service_locator.l2QwsaZ"/>
         <argument key="App\Controller\ImageController:downloadMultiple" type="service" id=".service_locator.LUBd5gR"/>
         <argument key="App\Controller\ImageController:handleDropzone" type="service" id=".service_locator.n.32Wpi"/>
-        <argument key="App\Controller\ImageController:latestPhotosAjax" type="service" id=".service_locator.g6H.xPr"/>
         <argument key="App\Controller\ImageController:makePrivate" type="service" id=".service_locator.l2QwsaZ"/>
-        <argument key="App\Controller\MainPageController:uploadFileAction" type="service" id=".service_locator.vQxyKVO"/>
         <argument key="App\Controller\SecurityController:login" type="service" id=".service_locator.UDgw6Ol"/>
         <argument key="App\Controller\SecurityController:logout" type="service" id=".service_locator.KfwZsne"/>
         <argument key="App\Controller\SecurityController:register" type="service" id=".service_locator.hjqTVeC"/>
@@ -7387,12 +7358,6 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.OuIzoRA" method="withContext"/>
     </service>
-    <service id=".service_locator.OuIzoRA.App\Controller\MainPageController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\MainPageController"/>
-      <argument>App\Controller\MainPageController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.OuIzoRA" method="withContext"/>
-    </service>
     <service id=".service_locator.OuIzoRA.App\Controller\SecurityController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\SecurityController"/>
       <argument>App\Controller\SecurityController</argument>
@@ -7465,13 +7430,15 @@
         <argument key="reverse_container" type="service" id="reverse_container" on-invalid="ignore_uninitialized"/>
       </argument>
     </service>
-    <service id=".service_locator.Hhge9DE" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.LrY.obc" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="initialized_session" type="service" id="session" on-invalid="ignore_uninitialized"/>
         <argument key="logger" type="service" id="monolog.logger" on-invalid="ignore"/>
+        <argument key="request_stack" type="service" id="request_stack"/>
         <argument key="session" type="service" id="session" on-invalid="ignore"/>
         <argument key="session_collector" type="service" id="data_collector.request.session_collector" on-invalid="ignore"/>
+        <argument key="session_storage" type="service" id="session.storage.native" on-invalid="ignore"/>
       </argument>
     </service>
     <service id=".service_locator.kODoftA" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -7577,12 +7544,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.MzQ6DZs"/>
+      <argument type="service" id=".service_locator.OqdAjLh"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.MzQ6DZs"/>
+      <argument type="service" id=".service_locator.OqdAjLh"/>
     </service>
     <service id="api_platform.openapi.normalizer.api_gateway.inner" class="ApiPlatform\Core\OpenApi\Serializer\OpenApiNormalizer">
       <argument type="service" id=".1_Serializer~3wM5Llz"/>
@@ -8141,7 +8108,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.Kbr2i2X" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.MzQ6DZs"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.OqdAjLh"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="api_platform.doctrine.listener.mercure.publish" alias="api_platform.doctrine.orm.listener.mercure.publish">
       <deprecated package="api-platform/core" version="2.6">Using "%alias_id%" service is deprecated since API Platform 2.6. Use "api_platform.doctrine.orm.listener.mercure.publish" instead.</deprecated>

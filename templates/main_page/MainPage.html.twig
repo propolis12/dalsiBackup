@@ -40,7 +40,7 @@
 <div class="wrapper">
 
     <!-- Sidebar -->
-    <div id="sidebar-wrapper" class="col-2">
+    <div id="sidebar-wrapper" class="col-lg-2 col-md-4 col-sm-8">
 
         <nav id="sidebar">
             <div class="sidebar-header">
@@ -114,7 +114,7 @@
 
 
 
-    <div id="content-wrapper" class="col-10">
+    <div id="content-wrapper" class="col-lg-10 col-md-8 col-sm-4">
 
         <div id="content" class="container-fluid">
             <nav id="editNavbar" class="navbar navbar-expand-lg navbar-light bg-light">
@@ -125,8 +125,11 @@
                 </button>
 
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <div class="col-2"></div>
+                    <!--<div class="col-2"></div>-->
                     <ul class="navbar-nav d-flex justify-content-start">
+                        <li class="nav-item">
+                            <a class="nav-link" id="deleteOnlyFromAlbumLi" href="#">Delete from this album<span class="sr-only">(current)</span></a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" id="downloadImagesNav" href="#">Download<span class="sr-only">(current)</span></a>
                         </li>
@@ -144,9 +147,7 @@
                                 <a class="dropdown-item" href="#">Something else here</a> -->
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="deleteOnlyFromAlbumLi" href="#">Delete from this album<span class="sr-only">(current)</span></a>
-                        </li>
+
                         <li>
                             <a  class="nav-link" id="makePublicLi" href="#">Make public<span class="sr-only">(current)</span></a>
                         </li>
@@ -186,7 +187,7 @@
 
 
 
-                    <div id="photo-list" class="row js-photo-list" data-url="{{ path('get_owned_images') }}">
+                    <div id="photo-list" class="row js-photo-list" data-url="{{ path('get_images') }}">
 
 
 

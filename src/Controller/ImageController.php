@@ -76,25 +76,32 @@ class ImageController extends AbstractController
     }
 
 
-    /**
+   /* /**
      * @Route("/image", name="image")
      */
-    public function index(): Response
+   /* public function index(): Response
     {
         return $this->render('image/index.html.twig', [
             'controller_name' => 'ImageController',
         ]);
+    }*/
+
+    /**
+     * @Route("/", name="main_page")
+     */
+    public function RenderMainPage() {
+        return $this->render('main_page/MainPage.html.twig');
     }
 
 
 
 
-    /**
+    /*/**
      *
      * @Route("/latest/photos/{originalFilename}" , name="latest_photos" , methods={"GET"} )
      * @throws ImagickException
      */
-    public function latestPhotosAjax(Request $request , string $originalFilename , KernelInterface $kernel) {
+    /*public function latestPhotosAjax(Request $request , string $originalFilename , KernelInterface $kernel) {
 
         $image = $this->imageRepository->findOneBy(['originalName' => $originalFilename]);
         if ($image->getOwner() === $this->security->getUser()) {
@@ -107,17 +114,16 @@ class ImageController extends AbstractController
             header("Content-Type: image/jpg");
             /*$response = new BinaryFileResponse($imagick->getFilename());
             return $response;*/
-            echo $imagick->getImageBlob();
+            //echo $imagick->getImageBlob();
            // $response = new BinaryFileResponse($imagePath);
            // return $response;
-        }
+        //}
         //dd($response);
 
-        return  new JsonResponse("Not authorized to view this photo", 401);
+       // return  new JsonResponse("Not authorized to view this photo", 401);
     //kernel->getProjectDir().UploaderHelper::IMAGE_DIRECTORY.'/'.$image->getFilename()
-    }
+    //}
 
-//'/home/jakub/Documents/securitySkuska/var/uploadedPhotos/satellite-image-of-globe-602321652ec51.jpg'
 
 
     /**
@@ -131,14 +137,6 @@ class ImageController extends AbstractController
         $image = $this->imageRepository->findOneBy(['originalName' => $filename]);
         if ($image->getOwner() === $this->security->getUser()) {
             $this->thumbnailProvider->provideThumbnail($filename,300,200);
-            /*$publicName = $this->uploaderHelper->getFullPath($filename);
-            $imagick = new \Imagick($publicName);
-            $imagick->setbackgroundcolor('rgb(64, 64, 64)');
-            $imagick->thumbnailImage(300, 200, false, false);
-            header("Content-Type: image/jpg");
-            /*$response = new BinaryFileResponse($imagick->getFilename());
-            return $response;*/
-            /*echo $imagick->getImageBlob();*/
         }
     }
 
@@ -154,24 +152,17 @@ class ImageController extends AbstractController
         $image = $this->imageRepository->findOneBy(['originalName' => $filename]);
 
             $this->thumbnailProvider->provideThumbnail($filename,300,200);
-            /*$publicName = $this->uploaderHelper->getFullPath($filename);
-            $imagick = new \Imagick($publicName);
-            $imagick->setbackgroundcolor('rgb(64, 64, 64)');
-            $imagick->thumbnailImage(300, 200, false, false);
-            header("Content-Type: image/jpg");
-            /*$response = new BinaryFileResponse($imagick->getFilename());
-            return $response;*/
-            /*echo $imagick->getImageBlob();*/
+
     }
 
-    /**
+    /*/**
      * @Route("send/photo/{originalName}" , name="latest_image", methods={"GET"})
      * @param string $originalName
      * @return BinaryFileResponse|JsonResponse
      */
-    public function latestPhotosByOriginalName(string $originalName) {
+    /*public function latestPhotosByOriginalName(string $originalName) {
         /** @var Image $image */
-        $image = $this->imageRepository->findOneBy(['originalName' => $originalName]);
+        /*$image = $this->imageRepository->findOneBy(['originalName' => $originalName]);
 
         if ($image->getOwner() === $this->security->getUser()) {
             $imagePath = $this->uploaderHelper->getFullPath($image->getFilename());
@@ -180,18 +171,15 @@ class ImageController extends AbstractController
         }
         return $this->json("Not authorized to view this photo", 401);
 
-    }
+    }*/
 
-    /**
+    /*/**
      * @Route("/owned/images", name="get_owned_images", methods={"GET"})
      */
-    public function ownedImages(Request $request) {
+   /* public function ownedImages(Request $request) {
         $ownedImages = $this->imageRepository->getOwnedImagesFilenames(null, null);
-        //dump($ownedImages);
-        //print_r($ownedImages);
-        //$this->logger->log($ownedImages,"logging data");
         return new JsonResponse($ownedImages, 200);
-    }
+    }*/
 
     /**
      *@Route("/upload/dropzone", name="dropzone_upload")
@@ -200,7 +188,6 @@ class ImageController extends AbstractController
         /** @var UploadedFile $uploadedFile */
         $uploadedFile = $request->files->get('dropzone');
         $albumName = $request->request->get('data');
-        //$albumName = $request->request->get('hiddenDropzoneInput');
         $violations = $validator->validate(
             $uploadedFile,
             new \Symfony\Component\Validator\Constraints\Image(),
@@ -218,7 +205,7 @@ class ImageController extends AbstractController
          array_push($this->filenamesToRender, $newFilename);
         $image->setPublic(false);
         $image->setMimetype($mimeType);
-        $image->setFilename($newFilename);
+       // $image->setFilename($newFilename);
         $image->setOwner($security->getUser());
         $image->setUploadedAt(new \DateTimeImmutable("now"));
         $originalFilename = $uploadedFile->getClientOriginalName();
@@ -241,22 +228,18 @@ class ImageController extends AbstractController
         $entityManager->flush();
         return new JsonResponse($albumName, 201);
 
-        /* $uploadedFile = $request->files->get('dropzone');
-         dump($uploadedFile);
-           ;*/
-
     }
 
-    /**
+    /*/**
      * @Route("/latest/uploaded/photo" , name="latest_photo" , methods={"GET"})
      * @throws ImagickException
      */
-    public function getLatestPhotoUploadedName(Request $request) {
+    /*public function getLatestPhotoUploadedName(Request $request) {
         $number = $this->imageRepository->getLastOwnedId();
         $response = $this->filenamesToRender;
         //dd($number[0][1]);
         /** @var Image $image */
-        $image = $this->imageRepository->findOneBy(['id' => $number[0][1]]);
+        //$image = $this->imageRepository->findOneBy(['id' => $number[0][1]]);
         //dd($image);
         //$publicName = $this->uploaderHelper->getFullPath($image->getFilename());
         /*$imagick = new \Imagick($publicName);
@@ -268,11 +251,11 @@ class ImageController extends AbstractController
         //echo $imagick->getImageBlob();
 
         //print_r($photo);
-        $this->filenamesToRender = array();
+        /*$this->filenamesToRender = array();
         return new JsonResponse($image->getFilename(), 200);
 
 
-    }
+    }*/
 
     /**
      * @Route("/send/fullPhoto/{filename}", name="send_full_photo")
@@ -281,11 +264,6 @@ class ImageController extends AbstractController
     {
         /** @var Image $image */
         $image = $this->imageRepository->findOneBy(['originalName' => $filename]);
-        /*if($image->getPublic()) {
-            $imagePath = $this->uploaderHelper->getFullPath($image->getOriginalName());
-            $response = new BinaryFileResponse($imagePath);
-            return $response;
-        }*/
         if ($image->getOwner() === $this->security->getUser() || $image->getPublic()) {
             $imagePath = $this->uploaderHelper->getFullPath($image->getOriginalName());
             $response = new BinaryFileResponse($imagePath);
@@ -303,7 +281,15 @@ class ImageController extends AbstractController
          /** @var Image $image */
         $image = $this->imageRepository->findOneBy(['originalName' => $filename]);
         if($image->getOwner() === $this->security->getUser()) {
+            $comments = $image->getComments();
+            foreach ($comments as $comment) {
+                $entityManager->remove($comment);
+               // $image->removeComment($comment);
+                //$entityManager->persist($comment);
+            }
+
             $entityManager->remove($image);
+            //$entityManager->persist($image);
             $entityManager->flush();
             $this->uploaderHelper->deleteFromSystem($filename);
             return $this->json($filename . " was deleted ", 204);
@@ -385,7 +371,7 @@ class ImageController extends AbstractController
             $response->headers->set('Content-Type' , $image->getMimetype());
             $disposition = HeaderUtils::makeDisposition(
             HeaderUtils::DISPOSITION_ATTACHMENT,
-            $image->getFilename()
+            $image->getOriginalName()
             );
             //dd($disposition);
             $response->headers->set('Content-Disposition', $disposition);
@@ -404,7 +390,7 @@ class ImageController extends AbstractController
         $data = ($request->query->get("array"));
         $array = explode(',', $data);
 
-        $archiveName = "zipDownloadImages";
+        $archiveName = "DownloadedImages";
         $file_path= '/var/uploadedPhotos/';
         $zip = new ZipArchive();
 
@@ -413,7 +399,7 @@ class ImageController extends AbstractController
         }
 
         foreach ($array as $filename) {
-            $zip->addFile($uploaderHelper->getFullPath($filename));
+            $zip->addFile($uploaderHelper->getFullPath($filename),$filename);
         }
         $zip->close();
         header("Content-type: application/zip");
@@ -424,7 +410,7 @@ class ImageController extends AbstractController
         readfile("$archiveName");
 
 
-       // return $this->json($array);
+        return $this->json($array);
     }
 
 }

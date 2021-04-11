@@ -16,13 +16,10 @@ return [
         '/admin/users' => [[['_route' => 'app_admin_users', '_controller' => 'App\\Controller\\AdminController::manageUsers'], null, null, null, false, false, null]],
         '/album/create' => [[['_route' => 'album_create', '_controller' => 'App\\Controller\\AlbumController::create'], null, ['POST' => 0], null, false, false, null]],
         '/fetch/albums' => [[['_route' => 'fetch_albums', '_controller' => 'App\\Controller\\AlbumController::provideAlbums'], null, ['GET' => 0], null, false, false, null]],
-        '/image' => [[['_route' => 'image', '_controller' => 'App\\Controller\\ImageController::index'], null, null, null, false, false, null]],
-        '/owned/images' => [[['_route' => 'get_owned_images', '_controller' => 'App\\Controller\\ImageController::ownedImages'], null, ['GET' => 0], null, false, false, null]],
+        '/' => [[['_route' => 'main_page', '_controller' => 'App\\Controller\\ImageController::RenderMainPage'], null, null, null, false, false, null]],
         '/upload/dropzone' => [[['_route' => 'dropzone_upload', '_controller' => 'App\\Controller\\ImageController::handleDropzone'], null, null, null, false, false, null]],
-        '/latest/uploaded/photo' => [[['_route' => 'latest_photo', '_controller' => 'App\\Controller\\ImageController::getLatestPhotoUploadedName'], null, ['GET' => 0], null, false, false, null]],
         '/get/images' => [[['_route' => 'get_images', '_controller' => 'App\\Controller\\ImageController::getImages'], null, null, null, false, false, null]],
         '/download/multiple' => [[['_route' => 'download_multiple', '_controller' => 'App\\Controller\\ImageController::downloadMultiple'], null, null, null, false, false, null]],
-        '/' => [[['_route' => 'main_page', '_controller' => 'App\\Controller\\MainPageController::uploadFileAction'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
         '/register' => [[['_route' => 'app_registration', '_controller' => 'App\\Controller\\SecurityController::register'], null, null, null, false, false, null]],
@@ -96,33 +93,27 @@ return [
                     .')'
                     .'|ownload/image/([^/]++)(*:739)'
                 .')'
-                .'|/l(?'
-                    .'|atest/photos/([^/]++)(*:774)'
-                    .'|ike/photo/([^/]++)(*:800)'
-                .')'
                 .'|/p(?'
-                    .'|hoto/([^/]++)(*:827)'
-                    .'|ublic/photo/([^/]++)(*:855)'
+                    .'|hoto/([^/]++)(*:766)'
+                    .'|ublic/photo/([^/]++)(*:794)'
                 .')'
-                .'|/send/(?'
-                    .'|photo/([^/]++)(*:887)'
-                    .'|fullPhoto/([^/]++)(*:913)'
-                .')'
-                .'|/get/image/info/([^/]++)(*:946)'
+                .'|/send/fullPhoto/([^/]++)(*:827)'
+                .'|/get/image/info/([^/]++)(*:859)'
                 .'|/m(?'
                     .'|ake/p(?'
-                        .'|ublic/([^/]++)(*:981)'
-                        .'|rivate/([^/]++)(*:1004)'
+                        .'|ublic/([^/]++)(*:894)'
+                        .'|rivate/([^/]++)(*:917)'
                     .')'
                     .'|edia/cache/resolve/(?'
-                        .'|([A-z0-9_-]*)/rc/([^/]++)/(.+)(*:1066)'
-                        .'|([A-z0-9_-]*)/(.+)(*:1093)'
+                        .'|([A-z0-9_-]*)/rc/([^/]++)/(.+)(*:978)'
+                        .'|([A-z0-9_-]*)/(.+)(*:1004)'
                     .')'
                 .')'
                 .'|/u(?'
-                    .'|ser/([^/]++)/update(*:1128)'
-                    .'|nlike/photo/([^/]++)(*:1157)'
+                    .'|ser/([^/]++)/update(*:1039)'
+                    .'|nlike/photo/([^/]++)(*:1068)'
                 .')'
+                .'|/like/photo/([^/]++)(*:1098)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -166,20 +157,18 @@ return [
         686 => [[['_route' => 'delete_album', '_controller' => 'App\\Controller\\AlbumController::deleteAlbum'], ['name'], ['DELETE' => 0], null, false, true, null]],
         708 => [[['_route' => 'delete_image', '_controller' => 'App\\Controller\\ImageController::deleteImage'], ['filename'], ['DELETE' => 0], null, false, true, null]],
         739 => [[['_route' => 'download_image', '_controller' => 'App\\Controller\\ImageController::downloadImage'], ['filename'], ['GET' => 0], null, false, true, null]],
-        774 => [[['_route' => 'latest_photos', '_controller' => 'App\\Controller\\ImageController::latestPhotosAjax'], ['originalFilename'], ['GET' => 0], null, false, true, null]],
-        800 => [[['_route' => 'like_photo', '_controller' => 'App\\Controller\\SharedImagesController::likeImage'], ['filename'], ['POST' => 0], null, false, true, null]],
-        827 => [[['_route' => 'send_thumbnail', '_controller' => 'App\\Controller\\ImageController::thumbnailImage'], ['filename'], ['GET' => 0], null, false, true, null]],
-        855 => [[['_route' => 'send_public_thumbnail', '_controller' => 'App\\Controller\\ImageController::thumbnailPublicImage'], ['filename'], ['GET' => 0], null, false, true, null]],
-        887 => [[['_route' => 'latest_image', '_controller' => 'App\\Controller\\ImageController::latestPhotosByOriginalName'], ['originalName'], ['GET' => 0], null, false, true, null]],
-        913 => [[['_route' => 'send_full_photo', '_controller' => 'App\\Controller\\ImageController::sendPhoto'], ['filename'], null, null, false, true, null]],
-        946 => [[['_route' => 'get_image_info', '_controller' => 'App\\Controller\\ImageController::getimageInfo'], ['filename'], ['POST' => 0], null, false, true, null]],
-        981 => [[['_route' => 'make_public', '_controller' => 'App\\Controller\\ImageController::makePublic'], ['filename'], ['POST' => 0], null, false, true, null]],
-        1004 => [[['_route' => 'make_private', '_controller' => 'App\\Controller\\ImageController::makePrivate'], ['filename'], ['POST' => 0], null, false, true, null]],
-        1066 => [[['_route' => 'liip_imagine_filter_runtime', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterRuntimeAction'], ['filter', 'hash', 'path'], ['GET' => 0], null, false, true, null]],
-        1093 => [[['_route' => 'liip_imagine_filter', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterAction'], ['filter', 'path'], ['GET' => 0], null, false, true, null]],
-        1128 => [[['_route' => 'app_update', '_controller' => 'App\\Controller\\SecurityController::update'], ['id'], null, null, false, false, null]],
-        1157 => [
-            [['_route' => 'unlike_photo', '_controller' => 'App\\Controller\\SharedImagesController::unlikeImage'], ['filename'], ['POST' => 0], null, false, true, null],
+        766 => [[['_route' => 'send_thumbnail', '_controller' => 'App\\Controller\\ImageController::thumbnailImage'], ['filename'], ['GET' => 0], null, false, true, null]],
+        794 => [[['_route' => 'send_public_thumbnail', '_controller' => 'App\\Controller\\ImageController::thumbnailPublicImage'], ['filename'], ['GET' => 0], null, false, true, null]],
+        827 => [[['_route' => 'send_full_photo', '_controller' => 'App\\Controller\\ImageController::sendPhoto'], ['filename'], null, null, false, true, null]],
+        859 => [[['_route' => 'get_image_info', '_controller' => 'App\\Controller\\ImageController::getimageInfo'], ['filename'], ['POST' => 0], null, false, true, null]],
+        894 => [[['_route' => 'make_public', '_controller' => 'App\\Controller\\ImageController::makePublic'], ['filename'], ['POST' => 0], null, false, true, null]],
+        917 => [[['_route' => 'make_private', '_controller' => 'App\\Controller\\ImageController::makePrivate'], ['filename'], ['POST' => 0], null, false, true, null]],
+        978 => [[['_route' => 'liip_imagine_filter_runtime', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterRuntimeAction'], ['filter', 'hash', 'path'], ['GET' => 0], null, false, true, null]],
+        1004 => [[['_route' => 'liip_imagine_filter', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterAction'], ['filter', 'path'], ['GET' => 0], null, false, true, null]],
+        1039 => [[['_route' => 'app_update', '_controller' => 'App\\Controller\\SecurityController::update'], ['id'], null, null, false, false, null]],
+        1068 => [[['_route' => 'unlike_photo', '_controller' => 'App\\Controller\\SharedImagesController::unlikeImage'], ['filename'], ['POST' => 0], null, false, true, null]],
+        1098 => [
+            [['_route' => 'like_photo', '_controller' => 'App\\Controller\\SharedImagesController::likeImage'], ['filename'], ['POST' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

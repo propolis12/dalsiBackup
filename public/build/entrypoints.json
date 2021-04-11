@@ -1,71 +1,29 @@
 {
   "entrypoints": {
-    "app": {
-      "js": [
-        "/build/runtime.js",
-        "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ob-7db861.js",
-        "/build/app.js"
-      ],
-      "css": [
-        "/build/app.css"
-      ]
-    },
-    "vuePage": {
-      "js": [
-        "/build/runtime.js",
-        "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ob-7db861.js",
-        "/build/vendors-node_modules_core-js_modules_es_promise_js-node_modules_jquery_dist_jquery_js-node_mo-9dc6ed.js",
-        "/build/vendors-node_modules_axios_index_js-node_modules_bootstrap_dist_js_bootstrap_js-node_modules_-80fff4.js",
-        "/build/vendors-node_modules_core-js_index_js.js",
-        "/build/vuePage.js"
-      ],
-      "css": [
-        "/build/vendors-node_modules_fortawesome_fontawesome-free_css_brands_css-node_modules_fortawesome_fon-ac0c71.css",
-        "/build/vuePage.css"
-      ]
-    },
     "mainPage": {
       "js": [
         "/build/runtime.js",
-        "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ob-7db861.js",
-        "/build/vendors-node_modules_core-js_modules_es_promise_js-node_modules_jquery_dist_jquery_js-node_mo-9dc6ed.js",
-        "/build/vendors-node_modules_axios_index_js-node_modules_bootstrap_dist_js_bootstrap_js-node_modules_-80fff4.js",
-        "/build/vendors-node_modules_dropzone_dist_dropzone_js-node_modules_dropzone_dist_dropzone_css-node_m-ebf025.js",
+        "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_axios_index_js-node_m-28eb72.js",
         "/build/node_modules_symfony_stimulus-bridge_dist_webpack_loader_js_assets_controllers_json-assets_ma-594b72.js",
         "/build/mainPage.js"
       ],
       "css": [
         "/build/vendors-node_modules_fortawesome_fontawesome-free_css_brands_css-node_modules_fortawesome_fon-ac0c71.css",
-        "/build/vendors-node_modules_dropzone_dist_dropzone_js-node_modules_dropzone_dist_dropzone_css-node_m-ebf025.css",
-        "/build/assets_styles_mainPage_css-assets_styles_mainPage_css.css"
+        "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_axios_index_js-node_m-28eb72.css",
+        "/build/node_modules_symfony_stimulus-bridge_dist_webpack_loader_js_assets_controllers_json-assets_ma-594b72.css"
       ]
     },
     "sharedPhotos": {
       "js": [
         "/build/runtime.js",
-        "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ob-7db861.js",
-        "/build/vendors-node_modules_core-js_modules_es_promise_js-node_modules_jquery_dist_jquery_js-node_mo-9dc6ed.js",
-        "/build/vendors-node_modules_axios_index_js-node_modules_bootstrap_dist_js_bootstrap_js-node_modules_-80fff4.js",
-        "/build/vendors-node_modules_dropzone_dist_dropzone_js-node_modules_dropzone_dist_dropzone_css-node_m-ebf025.js",
+        "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_axios_index_js-node_m-28eb72.js",
         "/build/node_modules_symfony_stimulus-bridge_dist_webpack_loader_js_assets_controllers_json-assets_ma-594b72.js",
         "/build/sharedPhotos.js"
       ],
       "css": [
         "/build/vendors-node_modules_fortawesome_fontawesome-free_css_brands_css-node_modules_fortawesome_fon-ac0c71.css",
-        "/build/vendors-node_modules_dropzone_dist_dropzone_js-node_modules_dropzone_dist_dropzone_css-node_m-ebf025.css",
-        "/build/assets_styles_mainPage_css-assets_styles_mainPage_css.css"
-      ]
-    },
-    "userManagement": {
-      "js": [
-        "/build/runtime.js",
-        "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ob-7db861.js",
-        "/build/vendors-node_modules_core-js_modules_es_promise_js-node_modules_jquery_dist_jquery_js-node_mo-9dc6ed.js",
-        "/build/userManagement.js"
-      ],
-      "css": [
-        "/build/vendors-node_modules_fortawesome_fontawesome-free_css_brands_css-node_modules_fortawesome_fon-ac0c71.css",
-        "/build/assets_styles_mainPage_css-assets_styles_mainPage_css.css"
+        "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_axios_index_js-node_m-28eb72.css",
+        "/build/node_modules_symfony_stimulus-bridge_dist_webpack_loader_js_assets_controllers_json-assets_ma-594b72.css"
       ]
     },
     "login": {
@@ -75,15 +33,6 @@
       "css": [
         "/build/vendors-node_modules_fortawesome_fontawesome-free_css_brands_css-node_modules_fortawesome_fon-ac0c71.css",
         "/build/login.css"
-      ]
-    },
-    "main": {
-      "js": [
-        "/build/runtime.js"
-      ],
-      "css": [
-        "/build/vendors-node_modules_fortawesome_fontawesome-free_css_brands_css-node_modules_fortawesome_fon-ac0c71.css",
-        "/build/main.css"
       ]
     },
     "register": {

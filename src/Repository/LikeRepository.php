@@ -28,7 +28,7 @@ class LikeRepository extends ServiceEntityRepository
      */
     private ImageRepository $imageRepository;
 
-    public function __construct(ManagerRegistry $registry , Security $security , ImageRepository $imageRepository , )
+    public function __construct(ManagerRegistry $registry , Security $security , ImageRepository $imageRepository)
     {
         parent::__construct($registry, Like::class);
         $this->security = $security;
@@ -56,6 +56,32 @@ class LikeRepository extends ServiceEntityRepository
 
     }
 
+    public function getImageLikesUsable($filename)
+    {
+        return $this->createQueryBuilder('l')
+            ->select('j.username')
+            ->join('l.user', 'j')
+            ->join('l.image', 'o')
+            ->andWhere('o.originalName = :val')
+            ->setParameter('val', $filename)
+            ->getQuery()
+            ->getResult();
+
+    }
+
+
+
+    public function getLikedImagesUsable()
+    {
+        return $this->createQueryBuilder('c')
+            ->select('i.originalName, i.UploadedAt , i.publishedAt')
+            ->join('c.user', 'u')
+            ->join('c.image', 'i')
+            ->andWhere('u.username = :val')
+            ->setParameter('val', $this->security->getUser()->getUsername())
+            ->getQuery()
+            ->getResult();
+    }
     // /**
     //  * @return Like[] Returns an array of Like objects
     //  */

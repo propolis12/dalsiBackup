@@ -8,9 +8,12 @@ framework:
     # Remove or comment this section to explicitly disable session support.
     session:
         handler_id: ~
-        cookie_secure: true
-        cookie_httponly: true
+        cookie_secure: auto
+        #cookie_httponly: true
         cookie_samesite: lax
+        cookie_lifetime: 604800 # = 7 Tage
+        name: "picupload"
+
 
     #esi: true
     #fragments: true

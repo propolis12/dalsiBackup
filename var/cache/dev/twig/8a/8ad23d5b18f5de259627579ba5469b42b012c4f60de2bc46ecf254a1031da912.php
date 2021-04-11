@@ -203,7 +203,7 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
 <div class=\"wrapper\">
 
     <!-- Sidebar -->
-    <div id=\"sidebar-wrapper\" class=\"col-2\">
+    <div id=\"sidebar-wrapper\" class=\"col-lg-2 col-md-4 col-sm-8\">
 
         <nav id=\"sidebar\">
             <div class=\"sidebar-header\">
@@ -277,7 +277,7 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
 
 
 
-    <div id=\"content-wrapper\" class=\"col-10\">
+    <div id=\"content-wrapper\" class=\"col-lg-10 col-md-8 col-sm-4\">
 
         <div id=\"content\" class=\"container-fluid\">
             <nav id=\"editNavbar\" class=\"navbar navbar-expand-lg navbar-light bg-light\">
@@ -288,8 +288,11 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
                 </button>
 
                 <div class=\"collapse navbar-collapse \" id=\"navbarSupportedContent\">
-                    <div class=\"col-2\"></div>
+                    <!--<div class=\"col-2\"></div>-->
                     <ul class=\"navbar-nav d-flex justify-content-start\">
+                        <li class=\"nav-item\">
+                            <a class=\"nav-link\" id=\"deleteOnlyFromAlbumLi\" href=\"#\">Delete from this album<span class=\"sr-only\">(current)</span></a>
+                        </li>
                         <li class=\"nav-item\">
                             <a class=\"nav-link\" id=\"downloadImagesNav\" href=\"#\">Download<span class=\"sr-only\">(current)</span></a>
                         </li>
@@ -307,9 +310,7 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
                                 <a class=\"dropdown-item\" href=\"#\">Something else here</a> -->
                             </div>
                         </li>
-                        <li class=\"nav-item\">
-                            <a class=\"nav-link\" id=\"deleteOnlyFromAlbumLi\" href=\"#\">Delete from this album<span class=\"sr-only\">(current)</span></a>
-                        </li>
+
                         <li>
                             <a  class=\"nav-link\" id=\"makePublicLi\" href=\"#\">Make public<span class=\"sr-only\">(current)</span></a>
                         </li>
@@ -342,7 +343,7 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
 
 
                     <form id=\"dropzone\" action=\"";
-        // line 181
+        // line 182
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("dropzone_upload");
         echo "\" method=\"POST\" enctype=\"multipart/form-data\" class=\"dropzone js-reference-dropzone\">
                         <input type=\"hidden\" id=\"hiddenDropzoneInput\">
@@ -353,14 +354,14 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
 
 
                     <div id=\"photo-list\" class=\"row js-photo-list\" data-url=\"";
-        // line 189
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("get_owned_images");
+        // line 190
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("get_images");
         echo "\">
 
 
 
                         ";
-        // line 200
+        // line 201
         echo "
                         <script>
 
@@ -401,7 +402,7 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
 
     public function getDebugInfo()
     {
-        return array (  364 => 200,  357 => 189,  346 => 181,  201 => 39,  196 => 38,  186 => 37,  176 => 34,  172 => 32,  169 => 31,  167 => 30,  157 => 29,  142 => 23,  138 => 22,  135 => 21,  133 => 20,  129 => 18,  125 => 16,  122 => 15,  116 => 12,  106 => 11,  91 => 4,  81 => 3,  62 => 2,  39 => 1,);
+        return array (  365 => 201,  358 => 190,  347 => 182,  201 => 39,  196 => 38,  186 => 37,  176 => 34,  172 => 32,  169 => 31,  167 => 30,  157 => 29,  142 => 23,  138 => 22,  135 => 21,  133 => 20,  129 => 18,  125 => 16,  122 => 15,  116 => 12,  106 => 11,  91 => 4,  81 => 3,  62 => 2,  39 => 1,);
     }
 
     public function getSourceContext()
@@ -448,7 +449,7 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
 <div class=\"wrapper\">
 
     <!-- Sidebar -->
-    <div id=\"sidebar-wrapper\" class=\"col-2\">
+    <div id=\"sidebar-wrapper\" class=\"col-lg-2 col-md-4 col-sm-8\">
 
         <nav id=\"sidebar\">
             <div class=\"sidebar-header\">
@@ -522,7 +523,7 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
 
 
 
-    <div id=\"content-wrapper\" class=\"col-10\">
+    <div id=\"content-wrapper\" class=\"col-lg-10 col-md-8 col-sm-4\">
 
         <div id=\"content\" class=\"container-fluid\">
             <nav id=\"editNavbar\" class=\"navbar navbar-expand-lg navbar-light bg-light\">
@@ -533,8 +534,11 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
                 </button>
 
                 <div class=\"collapse navbar-collapse \" id=\"navbarSupportedContent\">
-                    <div class=\"col-2\"></div>
+                    <!--<div class=\"col-2\"></div>-->
                     <ul class=\"navbar-nav d-flex justify-content-start\">
+                        <li class=\"nav-item\">
+                            <a class=\"nav-link\" id=\"deleteOnlyFromAlbumLi\" href=\"#\">Delete from this album<span class=\"sr-only\">(current)</span></a>
+                        </li>
                         <li class=\"nav-item\">
                             <a class=\"nav-link\" id=\"downloadImagesNav\" href=\"#\">Download<span class=\"sr-only\">(current)</span></a>
                         </li>
@@ -552,9 +556,7 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
                                 <a class=\"dropdown-item\" href=\"#\">Something else here</a> -->
                             </div>
                         </li>
-                        <li class=\"nav-item\">
-                            <a class=\"nav-link\" id=\"deleteOnlyFromAlbumLi\" href=\"#\">Delete from this album<span class=\"sr-only\">(current)</span></a>
-                        </li>
+
                         <li>
                             <a  class=\"nav-link\" id=\"makePublicLi\" href=\"#\">Make public<span class=\"sr-only\">(current)</span></a>
                         </li>
@@ -594,7 +596,7 @@ class __TwigTemplate_d001dcbcb9db7de74fca9e54e82d6a1457843f4beaec95ca3f8ee5cab1d
 
 
 
-                    <div id=\"photo-list\" class=\"row js-photo-list\" data-url=\"{{ path('get_owned_images') }}\">
+                    <div id=\"photo-list\" class=\"row js-photo-list\" data-url=\"{{ path('get_images') }}\">
 
 
 

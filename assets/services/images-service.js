@@ -12,9 +12,9 @@ export function fetchImage(filename) {
     return axios.get('/photos/'.filename);
 }
 
-export function fetchLatestImages() {
+/*export function fetchLatestImages() {
     return axios.get('/latest/uploaded/photo');
-}
+}*/
 
 export function deleteImage(name) {
     return axios.delete('/delete/image/'+ name);

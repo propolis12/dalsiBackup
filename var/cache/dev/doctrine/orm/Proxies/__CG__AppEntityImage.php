@@ -66,10 +66,10 @@ class Image extends \App\Entity\Image implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'filename', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'owner', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'latitude', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'longitude', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'public', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'filePath', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'UploadedAt', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'originalName', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'albums', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'tags', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'publishedAt', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'users', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'mimetype', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'likes', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'comments'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'owner', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'public', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'UploadedAt', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'originalName', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'albums', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'tags', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'publishedAt', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'mimetype', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'likes', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'comments'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'filename', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'owner', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'latitude', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'longitude', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'public', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'filePath', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'UploadedAt', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'originalName', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'albums', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'tags', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'publishedAt', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'users', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'mimetype', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'likes', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'comments'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'owner', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'public', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'UploadedAt', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'originalName', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'albums', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'tags', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'publishedAt', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'mimetype', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'likes', '' . "\0" . 'App\\Entity\\Image' . "\0" . 'comments'];
     }
 
     /**
@@ -194,28 +194,6 @@ class Image extends \App\Entity\Image implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getFilename(): ?string
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFilename', []);
-
-        return parent::getFilename();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setFilename(string $filename): \App\Entity\Image
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFilename', [$filename]);
-
-        return parent::setFilename($filename);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function getOwner(): ?\App\Entity\User
     {
 
@@ -238,50 +216,6 @@ class Image extends \App\Entity\Image implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getLatitude(): ?string
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLatitude', []);
-
-        return parent::getLatitude();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setLatitude(?string $latitude): \App\Entity\Image
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLatitude', [$latitude]);
-
-        return parent::setLatitude($latitude);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getLongitude(): ?string
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLongitude', []);
-
-        return parent::getLongitude();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setLongitude(?string $longitude): \App\Entity\Image
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLongitude', [$longitude]);
-
-        return parent::setLongitude($longitude);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function getPublic(): ?bool
     {
 
@@ -299,28 +233,6 @@ class Image extends \App\Entity\Image implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPublic', [$public]);
 
         return parent::setPublic($public);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getFilePath(): ?string
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFilePath', []);
-
-        return parent::getFilePath();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setFilePath(string $filePath): \App\Entity\Image
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFilePath', [$filePath]);
-
-        return parent::setFilePath($filePath);
     }
 
     /**
@@ -458,61 +370,6 @@ class Image extends \App\Entity\Image implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getUsers(): \Doctrine\Common\Collections\Collection
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUsers', []);
-
-        return parent::getUsers();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function addUser(\App\Entity\User $user): \App\Entity\Image
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addUser', [$user]);
-
-        return parent::addUser($user);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function removeUser(\App\Entity\User $user): \App\Entity\Image
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeUser', [$user]);
-
-        return parent::removeUser($user);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getMimetype(): ?string
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMimetype', []);
-
-        return parent::getMimetype();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setMimetype(string $mimetype): \App\Entity\Image
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMimetype', [$mimetype]);
-
-        return parent::setMimetype($mimetype);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function getLikes(): \Doctrine\Common\Collections\Collection
     {
 
@@ -541,6 +398,28 @@ class Image extends \App\Entity\Image implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeLike', [$like]);
 
         return parent::removeLike($like);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getMimetype(): ?string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMimetype', []);
+
+        return parent::getMimetype();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setMimetype(string $mimetype): \App\Entity\Image
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMimetype', [$mimetype]);
+
+        return parent::setMimetype($mimetype);
     }
 
     /**
