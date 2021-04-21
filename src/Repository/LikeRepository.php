@@ -74,7 +74,7 @@ class LikeRepository extends ServiceEntityRepository
     public function getLikedImagesUsable()
     {
         return $this->createQueryBuilder('c')
-            ->select('i.originalName, i.UploadedAt , i.publishedAt')
+            ->select('i.originalName')
             ->join('c.user', 'u')
             ->join('c.image', 'i')
             ->andWhere('u.username = :val')

@@ -83,12 +83,18 @@ class SharedImagesController extends AbstractController
         $like = new Like();
         $like->setImage($image);
         $like->setUser($this->security->getUser());
-        $image->addLike($like);
+        //$image->addLike($like);
         //$this->security->getUser()->addLikedImage($image);
         $this->entityManager->persist($like);
         $this->entityManager->persist($image);
         $this->entityManager->persist($this->security->getUser());
         $this->entityManager->flush();
+        $likes  = $this->likeRepository->getImageLikesUsable($filename);
+        //$usernames = [];
+        /*foreach ($likes as $like) {
+            array_push($usernames, $like["username"]);
+        }*/
+        return $this->json($likes);
         return $this->json($image, 200 , [] , [
             'groups' => ['share']
         ]);
@@ -112,13 +118,13 @@ class SharedImagesController extends AbstractController
                 break;
             }
         }
-        //$this->entityManager->persist($image);
-        /*$image->addLike($like);
-        $this->security->getUser()->addLikedImage($image);
-        $this->entityManager->persist($like);
-        $this->entityManager->persist($image);
-        $this->entityManager->persist($this->security->getUser());
-        $this->entityManager->flush();*/
+        $likes  = $this->likeRepository->getImageLikesUsable($filename);
+        $usernames = [];
+        foreach ($likes as $like) {
+            array_push($usernames, $like["username"]);
+        }
+        return $this->json($usernames);
+        $this->likeRepository->getImageLikesUsable($filename);
         return $this->json($image, 200 , [] , [
             'groups' => ['share']
         ]);

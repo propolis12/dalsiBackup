@@ -24,12 +24,6 @@ class Image // implements \JsonSerializable
      */
     private $id;
 
-    /*/**
-     * @ORM\Column(type="string", length=255)
-     * @Groups("image")
-     */
-   // private $filename;
-
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="images")
      * @ORM\JoinColumn(nullable=false)
@@ -37,17 +31,6 @@ class Image // implements \JsonSerializable
      */
     private $owner;
 
-    /*/**
-     * @ORM\Column(type="decimal", precision=15, scale=10, nullable=true)
-     * @Groups({"image","share"})
-     */
-    //private $latitude;
-
-    /*/**
-     * @ORM\Column(type="decimal", precision=15, scale=10, nullable=true)
-     * @Groups({"image","share"})
-     */
-    //private $longitude;
 
     /**
      * @ORM\Column(type="boolean")
@@ -55,7 +38,6 @@ class Image // implements \JsonSerializable
     private $public;
 
 
-   // private $filePath;
 
     /**
      * @ORM\Column(type="datetime")
@@ -86,11 +68,6 @@ class Image // implements \JsonSerializable
     private $publishedAt;
 
 
-    /*/**
-     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="likedImages")
-     */
-    //private Collection $users;
-
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -113,7 +90,6 @@ class Image // implements \JsonSerializable
         $this->albums = new ArrayCollection();
         $this->tags = new ArrayCollection();
         $this->likes = new ArrayCollection();
-        //$this->users = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }
 
@@ -150,17 +126,6 @@ class Image // implements \JsonSerializable
         return $this;
     }
 
-    /*public function getFilePath(): ?string
-    {
-        return UploaderHelper::IMAGE_DIRECTORY.'/'.$this->getFilename();
-    }
-
-    public function setFilePath(string $filePath): self
-    {
-        $this->filePath = $filePath;
-
-        return $this;
-    }*/
 
     public function getUploadedAt(): ?\DateTimeInterface
     {
@@ -240,16 +205,6 @@ class Image // implements \JsonSerializable
         return $this;
     }
 
-    /*public function jsonSerialize()
-    {
-        return [
-            'originalName' => $this->originalName,
-            'latitude' => $this->latitude,
-            'longitude' => $this->longitude,
-            'uploadedAt' => $this->UploadedAt,
-            'tags' => $this->tags
-        ];
-    }*/
 
     public function getPublishedAt(): ?\DateTimeInterface
     {
@@ -293,33 +248,6 @@ class Image // implements \JsonSerializable
         return $this;
     }
 
-    /*/**
-     * @return Collection|User[]
-     */
-   /* public function getUsers(): Collection
-    {
-        return $this->users;
-    }
-
-    public function addUser(User $user): self
-    {
-        if (!$this->users->contains($user)) {
-            $this->users[] = $user;
-            $user->addLikedImage($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUser(User $user): self
-    {
-        if ($this->users->removeElement($user)) {
-            $user->removeLikedImage($this);
-        }
-
-        return $this;
-    }
-*/
     public function getMimetype(): ?string
     {
         return $this->mimetype;
@@ -332,36 +260,7 @@ class Image // implements \JsonSerializable
         return $this;
     }
 
-    /*/**
-     * @return Collection|Like[]
-     */
-    /*public function getLikes(): Collection
-    {
-        return $this->likes;
-    }
 
-    public function addLike(Like $like): self
-    {
-        if (!$this->likes->contains($like)) {
-            $this->likes[] = $like;
-            $like->setImage($this);
-        }
-
-        return $this;
-    }
-
-    public function removeLike(Like $like): self
-    {
-        if ($this->likes->removeElement($like)) {
-            // set the owning side to null (unless already changed)
-            if ($like->getImage() === $this) {
-                $like->setImage(null);
-            }
-        }
-
-        return $this;
-    }
-    */
 
     /**
      * @return Collection|Comment[]

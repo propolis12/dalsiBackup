@@ -76,15 +76,6 @@ class ImageController extends AbstractController
     }
 
 
-   /* /**
-     * @Route("/image", name="image")
-     */
-   /* public function index(): Response
-    {
-        return $this->render('image/index.html.twig', [
-            'controller_name' => 'ImageController',
-        ]);
-    }*/
 
     /**
      * @Route("/", name="main_page")
@@ -95,34 +86,6 @@ class ImageController extends AbstractController
 
 
 
-
-    /*/**
-     *
-     * @Route("/latest/photos/{originalFilename}" , name="latest_photos" , methods={"GET"} )
-     * @throws ImagickException
-     */
-    /*public function latestPhotosAjax(Request $request , string $originalFilename , KernelInterface $kernel) {
-
-        $image = $this->imageRepository->findOneBy(['originalName' => $originalFilename]);
-        if ($image->getOwner() === $this->security->getUser()) {
-            $imagePath = $this->uploaderHelper->getFullPath($image->getOriginalName());
-            //dump($imagePath);
-           // print_r($imagePath);
-            $imagick = new \Imagick($imagePath);
-            $imagick->setbackgroundcolor('rgb(64, 64, 64)');
-            $imagick->thumbnailImage(300, 200, false, false);
-            header("Content-Type: image/jpg");
-            /*$response = new BinaryFileResponse($imagick->getFilename());
-            return $response;*/
-            //echo $imagick->getImageBlob();
-           // $response = new BinaryFileResponse($imagePath);
-           // return $response;
-        //}
-        //dd($response);
-
-       // return  new JsonResponse("Not authorized to view this photo", 401);
-    //kernel->getProjectDir().UploaderHelper::IMAGE_DIRECTORY.'/'.$image->getFilename()
-    //}
 
 
 
@@ -155,31 +118,6 @@ class ImageController extends AbstractController
 
     }
 
-    /*/**
-     * @Route("send/photo/{originalName}" , name="latest_image", methods={"GET"})
-     * @param string $originalName
-     * @return BinaryFileResponse|JsonResponse
-     */
-    /*public function latestPhotosByOriginalName(string $originalName) {
-        /** @var Image $image */
-        /*$image = $this->imageRepository->findOneBy(['originalName' => $originalName]);
-
-        if ($image->getOwner() === $this->security->getUser()) {
-            $imagePath = $this->uploaderHelper->getFullPath($image->getFilename());
-            $response = new BinaryFileResponse($imagePath);
-            return $response;
-        }
-        return $this->json("Not authorized to view this photo", 401);
-
-    }*/
-
-    /*/**
-     * @Route("/owned/images", name="get_owned_images", methods={"GET"})
-     */
-   /* public function ownedImages(Request $request) {
-        $ownedImages = $this->imageRepository->getOwnedImagesFilenames(null, null);
-        return new JsonResponse($ownedImages, 200);
-    }*/
 
     /**
      *@Route("/upload/dropzone", name="dropzone_upload")
@@ -230,32 +168,6 @@ class ImageController extends AbstractController
 
     }
 
-    /*/**
-     * @Route("/latest/uploaded/photo" , name="latest_photo" , methods={"GET"})
-     * @throws ImagickException
-     */
-    /*public function getLatestPhotoUploadedName(Request $request) {
-        $number = $this->imageRepository->getLastOwnedId();
-        $response = $this->filenamesToRender;
-        //dd($number[0][1]);
-        /** @var Image $image */
-        //$image = $this->imageRepository->findOneBy(['id' => $number[0][1]]);
-        //dd($image);
-        //$publicName = $this->uploaderHelper->getFullPath($image->getFilename());
-        /*$imagick = new \Imagick($publicName);
-        $imagick->setbackgroundcolor('rgb(64, 64, 64)');
-        $imagick->thumbnailImage(300, 300, true, true);
-        header("Content-Type: image/jpg");
-        /*$response = new BinaryFileResponse($imagick->getFilename());
-        return $response;*/
-        //echo $imagick->getImageBlob();
-
-        //print_r($photo);
-        /*$this->filenamesToRender = array();
-        return new JsonResponse($image->getFilename(), 200);
-
-
-    }*/
 
     /**
      * @Route("/send/fullPhoto/{filename}", name="send_full_photo")

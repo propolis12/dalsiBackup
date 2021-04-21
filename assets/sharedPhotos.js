@@ -13,7 +13,6 @@ import $ from 'jquery';
 import {fetchAlbumImages} from "./services/album-services";
 import {openWindow, setHoveringOverImages,nextImage,findCurrentImage,previousImage,closeImage} from "./mainPage.js";
 import {addComment} from "@/services/comment-services";
-//require('bootstrap')
 
 var publicImages = []
 var likedImages = []
@@ -23,15 +22,9 @@ var usernames = [];
 $(document).ready(async function() {
     $('#uploadIcon').remove()
     $('#searchUserLi').show()
-    console.log("asdafsfsdfsdfsdfsfsdfsdfsdf")
-   // publicImages = await fetchPublicImages()
     likedImages = await fetchLikedImages()
-
-    console.log("toto budu moje liked images")
-    console.log(likedImages)
-    console.log("toto budu public images")
+   // console.log(likedImages)
     publicImages  = await fetchPublicImages()
-    console.log(publicImages)
     await renderImagesShared(publicImages.data)
     $('#photo-list').html('')
     for (var i = 0; i < publicImages.data.length; i++) {
@@ -53,12 +46,6 @@ async function renderImagesShared(images) {
 
     $('#photoListShared').html('');
     var iconClass = 'far'
-    //publicImages = await fetchPublicImages();
-
-
-    // ownedImages = await fetchOwnedImages();
-
-    console.log(publicImagesNames + "toto je ownedImages");
     for (var i = 0; i < images.length; i++) {
 
 
@@ -141,56 +128,48 @@ function timeSince(date) {
 $(document).on('click','.likeable', async function () {
 
     var liked = false
-    var image
+    var imageLikes
     var name = $(this).parent().siblings()[1].dataset.name
-    //console.log(name)
-    console.log(likedImages.data.length)
     for (i = 0 ; i < likedImages.data.length; i++) {
-        console.log(likedImages.data[i]["originalName"] + "asdafsssssssssssasfaaaaasfdsssssssssssssssssssssssssff")
+        console.log(likedImages.data[i]["originalName"])
         if (likedImages.data[i]["originalName"] === name) {
+            console.log("true")
             liked = true
         }
     }
     if(!liked) {
-        image = await likePhoto(name)
-        //console.log(image)
-        //console.log(likedImages)
-       likedImages.data.push(image.data)
-        /*$(this).toggleClass('far')
-        $(this).toggleClass('fas')*/
+        imageLikes = await likePhoto(name)
+        //likedImages.data.push(imageLikes.data)
         toggleLikedHeart(this)
+        console.log("-------------------------------------------------------------------------------------")
+        console.log(imageLikes)
+        console.log("toto je imageLikes po likovani")
+        console.log(likedImages )
+        console.log("toto su liked images po likovani")
     } else {
-       image = await unlikePhoto(name)
-        //console.log(image)
-        var index = likedImages.data.indexOf(name)
-        likedImages.data.splice(index , 1)
-        //console.log("likedImages po delete ")
-        //console.log(likedImages)
-        /*$(this).toggleClass('far')
-        $(this).toggleClass('fas')*/
+       imageLikes = await unlikePhoto(name)
+        /*var index = likedImages.data.indexOf(name)
+        likedImages.data.splice(index , 1)*/
         toggleLikedHeart(this)
-
-
+        console.log("-------------------------------------------------------------------------------------")
+        console.log(imageLikes)
+        console.log("toto je imageLikes po unlikovani")
+        console.log(likedImages )
+        console.log("toto su liked images unlikovani")
     }
 
-
-    if( image.status !== 500) {
-        console.log("toto bude image")
-        console.log(image)
-        $(this).siblings('.numberLikes').text((image.data["likes"].length).toString())
+    likedImages = await fetchLikedImages()
+    if( imageLikes.status !== 500) {
+        $(this).siblings('.numberLikes').text((imageLikes.data.length).toString())
     }
-   // console.log(image)
-    //var index = publicImages.indexOf(image)
+
     for (var i = 0; i < publicImages.data.length ; i++) {
-        if(image["originalName"] === publicImages.data[i]["originalName"]) {
-            publicImages.data[i] = image
-
+        if(imageLikes["originalName"] === publicImages.data[i]["originalName"]) {
+            publicImages.data[i] = imageLikes
         }
     }
 
-    //var pos = publicImages.map(function(e) { return e["originalName"]; }).indexOf('stevie');
-   // console.log(index);
-    console.log(publicImages)
+    //console.log(publicImages)
 })
 
 
@@ -200,49 +179,11 @@ function toggleLikedHeart(el) {
 }
 
 $(document).on('click', '.thumbnailImageShared' , async  function () {
-        console.log($(this).data('name'))
         var imageName = $(this).data('name')
         openWindow(imageName, currentPublicImagesNames)
         $('#fullscreenPicture').prepend('<div></div>')
 
 })
-
-/*$( "#searchUserPhotos" ).autocomplete({
-    source: usernames
-});*/
-
-var availableTags = [
-    "ActionScript",
-    "AppleScript",
-    "Asp",
-    "BASIC",
-    "C",
-    "C++",
-    "Clojure",
-    "COBOL",
-    "ColdFusion",
-    "Erlang",
-    "Fortran",
-    "Groovy",
-    "Haskell",
-    "Java",
-    "JavaScript",
-    "Lisp",
-    "Perl",
-    "PHP",
-    "Python",
-    "Ruby",
-    "Scala",
-    "Scheme",
-    "sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
-    ]
-/*$( function() {
-
-    ];
-    $( "#searchUserPhotos" ).autocomplete(
-        availableTags);
-} );*/
-
 
 
 document.getElementById('searchUserPhotos').addEventListener('input', (e)=>{
@@ -250,7 +191,6 @@ document.getElementById('searchUserPhotos').addEventListener('input', (e)=>{
     if(e.target.value) {
         result = usernames.filter(name => name.toLowerCase().includes(e.target.value))
         result = result.map(name => `<li class="resultUserLi">${name}</li>`)
-        console.log(result)
     }
         showResultUsers(result)
 })
@@ -275,7 +215,6 @@ export async function showUserPhotos(username) {
     $('#photoListShared').html()
     var imagesToRender = []
     currentPublicImagesNames = []
-    //imagesToRender = publicImages
     for (var i = 0; i < publicImages.data.length; i++) {
         if (publicImages.data[i]["username"].includes(username)) {
             imagesToRender.push(publicImages.data[i])
@@ -292,14 +231,11 @@ $(document).on('click', '.commentToggler', function () {
 
 $(document).on('keyup', '.commentInput', async function (event) {
     if (event.keyCode === 13) {
-        console.log(event.target.value)
-        console.log($(this).parent().siblings('.thumbnailImageShared').data('name'))
         var filename = $(this).parent().siblings('.thumbnailImageShared').data('name')
         var comment = event.target.value
         await addComment(comment, filename)
         var imageInfo = await getImageInfo(filename, "share")
         $(this).siblings('.commentValues').html('')
-        console.log(imageInfo)
         for (var i = 0; i < imageInfo.data["comments"].length; i++) {
             $(this).siblings('.commentValues').append('<div class="actualCommentValue"><span class="commentUser">' + imageInfo.data["comments"][i]["user"]["username"] + ' </span> <span class="commentCreatedAt">' + timeSince(new Date( imageInfo.data["comments"][i]["createdAt"])) + '</span>' +
                 '<div class="commentValue">' + imageInfo.data["comments"][i]["value"] + ' </div></div>')
@@ -307,6 +243,3 @@ $(document).on('keyup', '.commentInput', async function (event) {
     }
 })
 
-/*$(document).on('click', '.comments', function () {
-    $(this).toggle()
-})*/

@@ -62,9 +62,7 @@ class AlbumController extends AbstractController
             return $this->json($errorMessage, 500);
         }
 
-        //echo $albumName["albumName"];
-        //dump($request);
-        //print_r($albumName);
+
         return new JsonResponse( $albumName["albumName"],201);
     }
 

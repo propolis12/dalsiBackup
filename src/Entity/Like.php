@@ -4,10 +4,16 @@ namespace App\Entity;
 
 use App\Repository\LikeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=LikeRepository::class)
- * @ORM\Table(name="`like`")
+ * @UniqueEntity(
+ *     fields={"user","image"},
+ *     message="you can like only one time"
+ *     )
+ *
+ * @ORM\Table(name="`like`" , uniqueConstraints=@ORM\UniqueConstraint(name="UNI", columns={"user_id", "image_id"}))"
  */
 class Like
 {

@@ -79,30 +79,11 @@ class User  implements UserInterface  //, \JsonSerializable
      */
     private $images;
 
-    /*/**
-     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="friends")
-     */
-    //private $friend;
-
-    /*/**
-     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="friend")
-     */
-    ///private $friends;
-
     /**
      * @ORM\OneToMany(targetEntity=Album::class, mappedBy="owner", orphanRemoval=true)
      */
     private $albums;
 
-    /*/**
-     * @ORM\OneToMany(targetEntity=Like::class, mappedBy="user", orphanRemoval=true)
-     */
-   // private Collection $likes;
-
-    /*/**
-     * @ORM\ManyToMany(targetEntity=Image::class, inversedBy="users")
-     */
-    //private $likedImages;
 
     /**
      * @ORM\OneToMany(targetEntity=Like::class, mappedBy="user", orphanRemoval=true)
@@ -117,11 +98,8 @@ class User  implements UserInterface  //, \JsonSerializable
     public function __construct()
     {
         $this->images = new ArrayCollection();
-        //$this->friend = new ArrayCollection();
-        //$this->friends = new ArrayCollection();
         $this->albums = new ArrayCollection();
         $this->likes = new ArrayCollection();
-        //$this->likedImages = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }
 
@@ -288,37 +266,6 @@ class User  implements UserInterface  //, \JsonSerializable
         return $this;
     }
 
-    /*/**
-     * @return Collection|self[]
-     */
-    /*public function getFriend(): Collection
-    {
-        return $this->friend;
-    }
-
-    public function addFriend(self $friend): self
-    {
-        if (!$this->friend->contains($friend)) {
-            $this->friend[] = $friend;
-        }
-
-        return $this;
-    }
-
-    public function removeFriend(self $friend): self
-    {
-        $this->friend->removeElement($friend);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|self[]
-     */
-    /*public function getFriends(): Collection
-    {
-        return $this->friends;
-    }*/
 
     /**
      * @return Collection|Album[]
@@ -350,12 +297,6 @@ class User  implements UserInterface  //, \JsonSerializable
         return $this;
     }
 
-    /*public function jsonSerialize()
-    {
-        return [
-            'username' => $this->username,
-        ];
-    }*/
 
     /**
      * @return Collection|Like[]
@@ -387,30 +328,7 @@ class User  implements UserInterface  //, \JsonSerializable
         return $this;
     }
 
-    /*/**
-     * @return Collection|Image[]
-     */
-    /*public function getLikedImages(): Collection
-    {
-        return $this->likedImages;
-    }
 
-    public function addLikedImage(Image $likedImage): self
-    {
-        if (!$this->likedImages->contains($likedImage)) {
-            $this->likedImages[] = $likedImage;
-        }
-
-        return $this;
-    }
-
-    public function removeLikedImage(Image $likedImage): self
-    {
-        $this->likedImages->removeElement($likedImage);
-
-        return $this;
-    }
-    */
 
 
     /**
